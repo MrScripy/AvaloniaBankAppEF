@@ -7,7 +7,8 @@
 	<Color x:Key="BlackBrush">Black</Color>
 	<Color x:Key="LightBlueBrush">#D4E7EE</Color>
 	<Color x:Key="BlueBrush">#018ABB</Color>
-	<Color x:Key="LightGreyBrush">#454545</Color>
-	<Color x:Key="GreyBrush">#4D4D4D</Color>
+	<Color x:Key="LightGrayBrush">#454545</Color>
+	<Color x:Key="GrayBrush">#4D4D4D</Color>
+	<Color x:Key="DarkGrayBrush">#484e57</Color>
 	
 </ResourceDictionary>

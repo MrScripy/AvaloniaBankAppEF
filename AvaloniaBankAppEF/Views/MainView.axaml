@@ -2,15 +2,56 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-             xmlns:vm="clr-namespace:AvaloniaBankAppEF.ViewModels"
+			 xmlns:vm="clr-namespace:AvaloniaBankAppEF.ViewModels;assembly=AvaloniaBankAppEF"
              mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
              x:Class="AvaloniaBankAppEF.Views.MainView"
-             x:DataType="vm:MainViewModel"
-			 Background="White"
+			 x:DataType="vm:MainViewModel"
+			 Background="{StaticResource TransparentBrush}"
 			 >
-  <Design.DataContext>  
-    <vm:MainViewModel />
-  </Design.DataContext>
+	<UserControl.DataContext>
+		<vm:MainViewModel/>
+	</UserControl.DataContext>
+	<Grid Margin="20" RowDefinitions="0.15* 0.85*" ColumnDefinitions="1* 1*" ShowGridLines="False" >
 
-  
+		<StackPanel Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2"
+					Orientation="Horizontal"
+					HorizontalAlignment="Center" VerticalAlignment="Center"
+					Spacing="10"
+					>
+			<Button Classes="BlueRoundedBtn"> Change Customer</Button>
+			<Button Classes="BlueRoundedBtn"> Add Customer</Button>
+			<Button Classes="BlueRoundedBtn"> Add Order</Button>
+			<Button Classes="BlueRoundedBtn"> Clear the tables</Button>	
+		</StackPanel>
+		
+		<DataGrid Grid.Row="1" Grid.Column="0" ItemsSource="{CompiledBinding Customers}" 
+				  VerticalAlignment="Stretch"
+				  Margin="20 10"
+				  >
+			
+			<DataGrid.Columns>
+				<DataGridTextColumn Header="N" IsReadOnly="True" Binding="{CompiledBinding Path=Id}"/>
+				<DataGridTextColumn Header="Name" IsReadOnly="True" Binding="{CompiledBinding Path=Name}"/>
+				<DataGridTextColumn Header="Patronymic" IsReadOnly="True"  Binding="{CompiledBinding Path=Patronymic}"/>
+				<DataGridTextColumn Header="Surname" IsReadOnly="True"  Binding="{CompiledBinding Path=Surname}"/>
+				<DataGridTextColumn Header="Phone" IsReadOnly="True"  Binding="{CompiledBinding Path=Phone}"/>
+				<DataGridTextColumn Header="E-mail" IsReadOnly="True" Binding="{CompiledBinding Path=Mail}"/>
+			</DataGrid.Columns>
+		</DataGrid>
+
+		<DataGrid Grid.Row="1" Grid.Column="1" ItemsSource="{CompiledBinding Orders}" 
+				  VerticalAlignment="Stretch"
+				  Margin="20 10"
+				  >
+			<DataGrid.Columns>
+				<DataGridTextColumn Header="N" IsReadOnly="True" Binding="{CompiledBinding Path=Id}"/>
+				<DataGridTextColumn Header="Prodsuct Code" IsReadOnly="True" Binding="{CompiledBinding Path=Code}"/>
+				<DataGridTextColumn Header="Product name" IsReadOnly="True" Binding="{CompiledBinding Path=Name}"/>
+			</DataGrid.Columns>
+		</DataGrid>
+
+		
+
+	</Grid>
+
 </UserControl>

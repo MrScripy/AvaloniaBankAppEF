@@ -1,11 +1,12 @@
-﻿using Avalonia.Controls;
+using Avalonia.Controls;
 
-namespace AvaloniaBankAppEF.Views;
-
-public partial class MainView : UserControl
+namespace AvaloniaBankAppEF.Views
 {
-    public MainView()
+    public partial class MainView : UserControl
     {
-        InitializeComponent();
+        public MainView()
+        {
+            InitializeComponent();
+        }
     }
 }
