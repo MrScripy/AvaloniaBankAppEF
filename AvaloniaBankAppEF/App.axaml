@@ -2,7 +2,6 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              x:Class="AvaloniaBankAppEF.App"
              RequestedThemeVariant="Default">
-             <!-- "Default" ThemeVariant follows system theme variant. "Dark" or "Light" are other available options. -->
 
 	<Application.Resources>
 		<ResourceDictionary>
@@ -14,5 +13,6 @@
     <Application.Styles>		
         <FluentTheme />
 		<StyleInclude Source="/Assets/Styles/BtnStyles.axaml"/>
+		<StyleInclude Source="/Assets/Styles/TextStyles.axaml"/>
     </Application.Styles>
 </Application>
