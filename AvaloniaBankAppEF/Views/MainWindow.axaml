@@ -8,6 +8,12 @@
         x:Class="AvaloniaBankAppEF.Views.MainWindow"
         Title="AvaloniaBankAppEF"
 		>
+	<Window.Background>
+		<LinearGradientBrush StartPoint="0%, 0%" EndPoint="0%, 100%">
+			<GradientStop Color="{StaticResource WhiteBrush}" Offset="0"/>
+			<GradientStop Color="{StaticResource BlueBrush}" Offset="1"/>
+		</LinearGradientBrush>
+	</Window.Background>
 	
         <views:MainView />
 	

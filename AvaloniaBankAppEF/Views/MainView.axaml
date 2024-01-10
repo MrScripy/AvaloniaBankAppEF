@@ -5,12 +5,25 @@
              xmlns:vm="clr-namespace:AvaloniaBankAppEF.ViewModels"
              mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
              x:Class="AvaloniaBankAppEF.Views.MainView"
-             x:DataType="vm:MainViewModel"
-			 Background="White"
+             x:DataType="vm:MainViewModel"	
+			 Background="{StaticResource TransparentBrush}"
 			 >
-  <Design.DataContext>  
+	
+    <Design.DataContext>  
     <vm:MainViewModel />
   </Design.DataContext>
 
+	<Grid HorizontalAlignment="Center" 
+		  VerticalAlignment="Center"
+		  RowDefinitions="1*, 1*, 1*, 1*, 1*"		  
+		  >
+		
+		<TextBlock Grid.Row="0" Classes="MainTextBlock" Margin="0 0 0 10">Login</TextBlock>
+		<TextBox Grid.Row="1" Classes="MainTextBox" Margin="0 0 0 10"></TextBox>
+		<TextBlock Grid.Row="2" Classes="MainTextBlock" Margin="0 10 0 10">Password</TextBlock>
+		<TextBox Grid.Row="3" Classes="MainTextBox" Margin="0 0 0 10"></TextBox>
+		<Button Grid.Row="4" Classes="BlueRoundedBtn" Margin="0 10 0 0">Connect</Button>
+
+	</Grid>
   
 </UserControl>
