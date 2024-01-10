@@ -16,6 +16,6 @@
 		</LinearGradientBrush>
 	</Window.Background>
 	
-	<views:AddCustomer/>
+	<views:AddOrder/>
 	
 </Window>

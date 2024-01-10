@@ -5,7 +5,27 @@
              mc:Ignorable="d" d:DesignWidth="500" d:DesignHeight="500"
 			 Width="500" Height="500"
              x:Class="AvaloniaBankAppEF.Views.Dialogs.Pages.AddOrder"
-			 Background="{StaticResource TransparentBrush}"
+			  Background="{StaticResource TransparentBrush}"
 			 >
+	<Grid Margin="20" ShowGridLines="False" RowDefinitions="0.15*, 0.85*" HorizontalAlignment="Center">
+		<TextBlock Classes="MainTextBlock">Add Order</TextBlock>
+
+		<Grid Grid.Row="1" RowDefinitions="1* 1* 1*" ColumnDefinitions="0.3* 0.7*" ShowGridLines="False">
+
+			<TextBlock Grid.Row="0" Classes="MainTextBlock" HorizontalAlignment="Right">Surname</TextBlock>
+			<TextBlock Grid.Row="1" Classes="MainTextBlock" HorizontalAlignment="Right">Name</TextBlock>
+			
+
+			<TextBox Grid.Row="0" Grid.Column="1" Classes="MainTextBox"/>
+			<TextBox Grid.Row="1" Grid.Column="1" Classes="MainTextBox"/>
+			
+
+			<Button Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2"
+					Classes="BlueRoundedBtn"
+					HorizontalAlignment="Center" VerticalAlignment="Center"
+					Content="Add"
+					/>
+		</Grid>
+	</Grid>
 
 </UserControl>
