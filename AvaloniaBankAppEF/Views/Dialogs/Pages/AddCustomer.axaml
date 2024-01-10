@@ -8,7 +8,7 @@
 			 Background="{StaticResource TransparentBrush}"
 			 >
 	<Grid Margin="20" ShowGridLines="False" RowDefinitions="0.15*, 0.85*">
-		<TextBlock Classes="MainTextBlock">Change Customer Info</TextBlock>
+		<TextBlock Classes="MainTextBlock">Add Customer Info</TextBlock>
 
 		<Grid Grid.Row="1" RowDefinitions="1* 1* 1* 1* 1* 1*" ColumnDefinitions="0.3* 0.7*" ShowGridLines="False">
 
@@ -27,7 +27,7 @@
 			<Button Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="2"
 					Classes="BlueRoundedBtn"
 					HorizontalAlignment="Center" VerticalAlignment="Center"
-					Content="Change"
+					Content="Add"
 					/>
 		</Grid>
 	</Grid>
