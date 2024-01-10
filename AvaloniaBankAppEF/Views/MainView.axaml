@@ -2,10 +2,15 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+			 xmlns:vm="clr-namespace:AvaloniaBankAppEF.ViewModels;assembly=AvaloniaBankAppEF"
              mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
              x:Class="AvaloniaBankAppEF.Views.MainView"
+			 x:DataType="vm:MainViewModel"
 			 Background="{StaticResource TransparentBrush}"
 			 >
+	<UserControl.DataContext>
+		<vm:MainViewModel/>
+	</UserControl.DataContext>
 	<Grid Margin="20" RowDefinitions="0.2* 0.8*" ColumnDefinitions="1* 1*" ShowGridLines="False" >
 
 		<DataGrid Grid.Row="1" Grid.Column="1">

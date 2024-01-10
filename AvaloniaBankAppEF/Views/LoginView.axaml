@@ -5,12 +5,12 @@
              xmlns:vm="clr-namespace:AvaloniaBankAppEF.ViewModels"
              mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
              x:Class="AvaloniaBankAppEF.Views.LoginView"
-             x:DataType="vm:MainViewModel"	
+             x:DataType="vm:LoginViewModel"	
 			 Background="{StaticResource TransparentBrush}"
 			 >
 	
-    <Design.DataContext>  
-    <vm:MainViewModel />
+    <Design.DataContext>
+		<vm:LoginViewModel/>
   </Design.DataContext>
 
 	<Grid HorizontalAlignment="Center" 

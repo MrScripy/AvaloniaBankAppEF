@@ -1,6 +1,9 @@
-﻿namespace AvaloniaBankAppEF.ViewModels;
-
-public partial class MainViewModel : ViewModelBase
+﻿
+namespace AvaloniaBankAppEF.ViewModels
 {
-    public string Greeting => "Fuck you, Avalonia!";
+    
+
+    internal class MainViewModel:ViewModelBase
+    {
+    }
 }
