@@ -1,0 +1,43 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             x:Class="AvaloniaBankAppEF.Views.MainView"
+			 Background="{StaticResource TransparentBrush}"
+			 >
+	<Grid Margin="20" RowDefinitions="0.2* 0.8*" ColumnDefinitions="1* 1*" ShowGridLines="False" >
+
+		<DataGrid Grid.Row="1" Grid.Column="1">
+			<DataGrid.Columns>
+				<DataGridTextColumn Header="N" IsReadOnly="True"/>
+				<DataGridTextColumn Header="Name" IsReadOnly="True"/>
+				<DataGridTextColumn Header="Patronymic" IsReadOnly="True" />
+				<DataGridTextColumn Header="Surname" IsReadOnly="True" />
+				<DataGridTextColumn Header="Phone" IsReadOnly="True" />
+				<DataGridTextColumn Header="E-mail" IsReadOnly="True"/>
+			</DataGrid.Columns>
+		</DataGrid>
+
+		<DataGrid Grid.Row="1" Grid.Column="0">
+			<DataGrid.Columns>
+				<DataGridTextColumn Header="N" IsReadOnly="True" Binding="{Binding Path=Id}"/>
+				<DataGridTextColumn Header="Prodsuct Code" IsReadOnly="True" Binding="{Binding Path=ItemCode}"/>
+				<DataGridTextColumn Header="Product name" IsReadOnly="True" Binding="{Binding Path=ItemName}"/>
+			</DataGrid.Columns>
+		</DataGrid>
+
+		<StackPanel Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2"
+					Orientation="Horizontal"
+					HorizontalAlignment="Center" VerticalAlignment="Center"
+					Spacing="10"
+					>
+			<Button Classes="BlueRoundedBtn"> Change Customer</Button>
+			<Button Classes="BlueRoundedBtn"> Add Customer</Button>
+			<Button Classes="BlueRoundedBtn"> Add Order</Button>
+			<Button Classes="BlueRoundedBtn"> Clear the tables</Button>
+		</StackPanel>
+
+	</Grid>
+
+</UserControl>

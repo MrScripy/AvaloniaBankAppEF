@@ -15,6 +15,7 @@
 		</LinearGradientBrush>
 	</Window.Background>
 	
-        <views:LoginView />
+	<!--<views:LoginView />-->
+	<views:MainView/>
 	
 </Window>
