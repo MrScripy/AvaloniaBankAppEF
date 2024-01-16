@@ -1,5 +1,6 @@
 ﻿
 using CommunityToolkit.Mvvm.ComponentModel;
+using System;
 using System.Collections.ObjectModel;
 
 namespace AvaloniaBankAppEF.ViewModels
@@ -21,7 +22,7 @@ namespace AvaloniaBankAppEF.ViewModels
         public string Code { get; set; }
     }
 
-    internal partial class MainViewModel : ViewModelBase
+    internal partial class MainViewModel : ViewModelBase, IDisposable
     {
         [ObservableProperty]
         private ObservableCollection<Customer> _customers = new ObservableCollection<Customer>
@@ -418,5 +419,9 @@ namespace AvaloniaBankAppEF.ViewModels
         [ObservableProperty]
         private string _test = "Test";
 
+        public void Dispose()
+        {
+
+        }
     }
 }
