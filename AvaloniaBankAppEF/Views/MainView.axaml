@@ -45,7 +45,7 @@
 				  >
 			<DataGrid.Columns>
 				<DataGridTextColumn Header="N" IsReadOnly="True" Binding="{CompiledBinding Path=Id}"/>
-				<DataGridTextColumn Header="Prodsuct Code" IsReadOnly="True" Binding="{CompiledBinding Path=Code}"/>
+				<DataGridTextColumn Header="Product Code" IsReadOnly="True" Binding="{CompiledBinding Path=Code}"/>
 				<DataGridTextColumn Header="Product name" IsReadOnly="True" Binding="{CompiledBinding Path=Name}"/>
 			</DataGrid.Columns>
 		</DataGrid>

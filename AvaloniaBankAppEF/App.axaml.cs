@@ -3,7 +3,7 @@ using Avalonia.Controls;
 using Avalonia.Controls.ApplicationLifetimes;
 using Avalonia.Data.Core.Plugins;
 using Avalonia.Markup.Xaml;
-
+using AvaloniaBankAppEF.DbContexts;
 using AvaloniaBankAppEF.ViewModels;
 using AvaloniaBankAppEF.Views;
 using Microsoft.Extensions.DependencyInjection;
@@ -70,7 +70,7 @@ public partial class App : Application
 
     private void ConfigureServices(IServiceCollection services)
     {
-        
+        services.AddDbContextFactory<ApplicationDbContext>();
 
         //ViewModels
         services.AddSingleton<MainViewModel>();
