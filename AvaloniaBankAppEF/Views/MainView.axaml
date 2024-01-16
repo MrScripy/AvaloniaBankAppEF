@@ -24,29 +24,29 @@
 			<Button Classes="BlueRoundedBtn"> Clear the tables</Button>	
 		</StackPanel>
 		
-		<DataGrid Grid.Row="1" Grid.Column="0" ItemsSource="{CompiledBinding Customers}" 
+		<DataGrid Grid.Row="1" Grid.Column="0" ItemsSource="{CompiledBinding }" 
 				  VerticalAlignment="Stretch"
 				  Margin="20 10"
 				  >
 			
 			<DataGrid.Columns>
-				<DataGridTextColumn Header="N" IsReadOnly="True" Binding="{CompiledBinding Path=Id}"/>
-				<DataGridTextColumn Header="Name" IsReadOnly="True" Binding="{CompiledBinding Path=Name}"/>
-				<DataGridTextColumn Header="Patronymic" IsReadOnly="True"  Binding="{CompiledBinding Path=Patronymic}"/>
-				<DataGridTextColumn Header="Surname" IsReadOnly="True"  Binding="{CompiledBinding Path=Surname}"/>
-				<DataGridTextColumn Header="Phone" IsReadOnly="True"  Binding="{CompiledBinding Path=Phone}"/>
-				<DataGridTextColumn Header="E-mail" IsReadOnly="True" Binding="{CompiledBinding Path=Mail}"/>
+				<DataGridTextColumn Header="N" IsReadOnly="True" Binding="{CompiledBinding }"/>
+				<DataGridTextColumn Header="Name" IsReadOnly="True" Binding="{CompiledBinding }"/>
+				<DataGridTextColumn Header="Patronymic" IsReadOnly="True"  Binding="{CompiledBinding }"/>
+				<DataGridTextColumn Header="Surname" IsReadOnly="True"  Binding="{CompiledBinding}"/>
+				<DataGridTextColumn Header="Phone" IsReadOnly="True"  Binding="{CompiledBinding }"/>
+				<DataGridTextColumn Header="E-mail" IsReadOnly="True" Binding="{CompiledBinding }"/>
 			</DataGrid.Columns>
 		</DataGrid>
 
-		<DataGrid Grid.Row="1" Grid.Column="1" ItemsSource="{CompiledBinding Orders}" 
+		<DataGrid Grid.Row="1" Grid.Column="1" ItemsSource="{CompiledBinding }" 
 				  VerticalAlignment="Stretch"
 				  Margin="20 10"
 				  >
 			<DataGrid.Columns>
-				<DataGridTextColumn Header="N" IsReadOnly="True" Binding="{CompiledBinding Path=Id}"/>
-				<DataGridTextColumn Header="Product Code" IsReadOnly="True" Binding="{CompiledBinding Path=Code}"/>
-				<DataGridTextColumn Header="Product name" IsReadOnly="True" Binding="{CompiledBinding Path=Name}"/>
+				<DataGridTextColumn Header="N" IsReadOnly="True" Binding="{CompiledBinding }"/>
+				<DataGridTextColumn Header="Product Code" IsReadOnly="True" Binding="{CompiledBinding }"/>
+				<DataGridTextColumn Header="Product name" IsReadOnly="True" Binding="{CompiledBinding }"/>
 			</DataGrid.Columns>
 		</DataGrid>
 
