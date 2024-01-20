@@ -1,9 +1,9 @@
-﻿using AvaloniaBankAppEF.DbContexts;
-using AvaloniaBankAppEF.Services.Interfaces;
-using CommunityToolkit.Mvvm.Input;
-using Microsoft.EntityFrameworkCore;
-using System;
+﻿using System;
 using System.Diagnostics;
+using Microsoft.EntityFrameworkCore;
+using CommunityToolkit.Mvvm.Input;
+using AvaloniaBankAppEF.DbContexts;
+using AvaloniaBankAppEF.ViewModels.Base;
 
 namespace AvaloniaBankAppEF.ViewModels
 {

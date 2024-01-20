@@ -1,4 +1,8 @@
-﻿using Avalonia;
+﻿using System;
+using Avalonia;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Hosting;
 using Avalonia.Controls;
 using Avalonia.Controls.ApplicationLifetimes;
 using Avalonia.Data.Core.Plugins;
@@ -8,13 +12,8 @@ using AvaloniaBankAppEF.Services;
 using AvaloniaBankAppEF.Services.Interfaces;
 using AvaloniaBankAppEF.ViewModels;
 using AvaloniaBankAppEF.Views;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Hosting;
 using Splat;
 using Splat.Microsoft.Extensions.DependencyInjection;
-using System;
-using System.ComponentModel.DataAnnotations;
 
 namespace AvaloniaBankAppEF;
 

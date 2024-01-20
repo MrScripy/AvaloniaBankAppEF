@@ -4,9 +4,7 @@ namespace AvaloniaBankAppEF.Views.Dialogs.Pages
 {
     public partial class ChangeCustomerInfo : UserControl
     {
-        public ChangeCustomerInfo()
-        {
-            InitializeComponent();
-        }
+        public ChangeCustomerInfo() => InitializeComponent();
+
     }
 }

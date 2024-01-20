@@ -1,11 +1,11 @@
-﻿using AvaloniaBankAppEF.DbContexts;
-using AvaloniaBankAppEF.Services.Interfaces;
-using Microsoft.EntityFrameworkCore;
-using System.Collections.Generic;
-using System;
-using System.Threading.Tasks;
-using AvaloniaBankAppEF.Entities;
+﻿using System;
 using System.Linq;
+using System.Collections.Generic;
+using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore;
+using AvaloniaBankAppEF.DbContexts;
+using AvaloniaBankAppEF.Services.Interfaces;
+using AvaloniaBankAppEF.Entities;
 
 namespace AvaloniaBankAppEF.Services
 {

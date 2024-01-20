@@ -4,9 +4,7 @@ namespace AvaloniaBankAppEF.Views.Dialogs.Pages
 {
     public partial class AddOrder : UserControl
     {
-        public AddOrder()
-        {
-            InitializeComponent();
-        }
+        public AddOrder() => InitializeComponent();
+
     }
 }
