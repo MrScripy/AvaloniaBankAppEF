@@ -20,11 +20,16 @@
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
-    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="8.0.0" />
     <PackageReference Include="Splat.Microsoft.Extensions.DependencyInjection" Version="14.8.12" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\AvaloniaBankAppEF\AvaloniaBankAppEF.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="Bank.db">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
 </Project>

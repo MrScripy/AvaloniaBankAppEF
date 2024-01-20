@@ -1,32 +1,42 @@
-﻿using CommunityToolkit.Mvvm.ComponentModel;
+﻿using AvaloniaBankAppEF.DbContexts;
+using AvaloniaBankAppEF.Services.Interfaces;
+using CommunityToolkit.Mvvm.Input;
+using Microsoft.EntityFrameworkCore;
 using System;
-using System.Collections.ObjectModel;
+using System.Diagnostics;
 
 namespace AvaloniaBankAppEF.ViewModels
 {
-    internal class Customer
-    {
-        public int Id { get; set; }
-        public string Name { get; set; }
-        public string Patronymic { get; set; }
-        public string Surname { get; set; }
-        public string Phone { get; set; }
-        public string Mail { get; set; }
-    }
-
-    internal class Order
-    {
-        public int Id { get; set; }
-        public string Name { get; set; }
-        public string Code { get; set; }
-    }
-
     internal partial class MainViewModel : ViewModelBase, IDisposable
     {
+        private IDbContextFactory<ApplicationDbContext> _dbContextFactory;
+        public MainViewModel() { }
 
-        MainViewModel() 
+        public MainViewModel(IDbContextFactory<ApplicationDbContext> dbContextFactory) 
         {
-        
+            _dbContextFactory = dbContextFactory;
+        }
+
+        [RelayCommand]
+        private void AddCustomer()
+        {
+            if (true)
+                ;
+            using (var db = _dbContextFactory.CreateDbContext())
+            {
+
+                db.Customers.Add(new Entities.Customer
+                {
+                    Name = "Name",
+                    Patronymic = "Patro",
+                    Surname = "Surname",
+                    Mail = "Mail",
+                    Phone = "123"                   
+
+                });
+                db.SaveChanges();
+                Trace.WriteLine("Added customer");
+            }
         }
 
         public void Dispose()

@@ -4,8 +4,11 @@ using Avalonia.Controls.ApplicationLifetimes;
 using Avalonia.Data.Core.Plugins;
 using Avalonia.Markup.Xaml;
 using AvaloniaBankAppEF.DbContexts;
+using AvaloniaBankAppEF.Services;
+using AvaloniaBankAppEF.Services.Interfaces;
 using AvaloniaBankAppEF.ViewModels;
 using AvaloniaBankAppEF.Views;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Splat;
@@ -70,12 +73,17 @@ public partial class App : Application
 
     private void ConfigureServices(IServiceCollection services)
     {
-        services.AddDbContextFactory<ApplicationDbContext>();
+        services.AddDbContextFactory<ApplicationDbContext>(options =>
+            options.UseSqlite("Data Source=Bank.db"));
 
         //ViewModels
         services.AddSingleton<MainViewModel>();
         services.AddSingleton<LoginViewModel>();
 
+        //Services
+        services.AddTransient<IDataCreator, DataCreator>();
+
+        //Window
 
         services.AddSingleton(s => new MainWindow()
         {

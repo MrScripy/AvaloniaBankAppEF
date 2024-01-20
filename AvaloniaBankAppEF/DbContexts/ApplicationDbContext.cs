@@ -1,5 +1,6 @@
 ﻿using AvaloniaBankAppEF.Entities;
 using Microsoft.EntityFrameworkCore;
+using System;
 
 namespace AvaloniaBankAppEF.DbContexts
 {
@@ -10,9 +11,9 @@ namespace AvaloniaBankAppEF.DbContexts
 
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options) { }
 
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        {
-            optionsBuilder.UseSqlite("Data Source=Bank.db");
-        }
+        //protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        //{
+        //    optionsBuilder.UseSqlite("Data Source=Bank.db");
+        //}
     }
 }

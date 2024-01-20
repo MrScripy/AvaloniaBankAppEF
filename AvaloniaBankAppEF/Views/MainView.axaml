@@ -19,7 +19,7 @@
 					Spacing="10"
 					>
 			<Button Classes="BlueRoundedBtn"> Change Customer</Button>
-			<Button Classes="BlueRoundedBtn"> Add Customer</Button>
+			<Button Classes="BlueRoundedBtn" Command="{CompiledBinding AddCustomerCommand}"> Add Customer</Button>
 			<Button Classes="BlueRoundedBtn"> Add Order</Button>
 			<Button Classes="BlueRoundedBtn"> Clear the tables</Button>	
 		</StackPanel>
