@@ -1,14 +1,18 @@
 <Window xmlns="https://github.com/avaloniaui"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:vm="using:AvaloniaBankAppEF.ViewModels"
+        xmlns:vmB="clr-namespace:AvaloniaBankAppEF.ViewModels.Base;assembly=AvaloniaBankAppEF"
+        xmlns:vm="clr-namespace:AvaloniaBankAppEF.ViewModels;assembly=AvaloniaBankAppEF"
+        xmlns:views="clr-namespace:AvaloniaBankAppEF.Views"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:views="clr-namespace:AvaloniaBankAppEF.Views"
         mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"	
 		Width="1420" Height="720"
 		MinWidth="800" MinHeight="450"
+		
         x:Class="AvaloniaBankAppEF.Views.MainWindow"
-        Title="AvaloniaBankAppEF"
+        Title="{CompiledBinding Test}"
+		x:CompileBindings="True"
+		x:DataType="vmB:MainWindowViewModel"
 		>
 	<Window.Background>
 		<LinearGradientBrush StartPoint="0%, 0%" EndPoint="0%, 100%">
@@ -16,8 +20,16 @@
 			<GradientStop Color="{StaticResource BlueBrush}" Offset="1"/>
 		</LinearGradientBrush>
 	</Window.Background>
+
+	<Window.DataTemplates>
+		<DataTemplate DataType="{x:Type vm:LoginViewModel}">
+			<views:LoginView/>
+		</DataTemplate>
+		<DataTemplate DataType="{x:Type vm:MainViewModel}">
+			<views:MainView/>
+		</DataTemplate>
+	</Window.DataTemplates>
 	
-	<!--<views:LoginView />-->
-	<views:MainView/>
+	<ContentControl Content="{CompiledBinding CurrentViewModel}"/>
 	
 </Window>

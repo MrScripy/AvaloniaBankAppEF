@@ -7,7 +7,7 @@ using AvaloniaBankAppEF.ViewModels.Base;
 
 namespace AvaloniaBankAppEF.ViewModels
 {
-    internal partial class MainViewModel : ViewModelBase, IDisposable
+    public partial class MainViewModel : ViewModelBase, IDisposable
     {
         private IDbContextFactory<ApplicationDbContext> _dbContextFactory;
         public MainViewModel() { }

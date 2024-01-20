@@ -8,9 +8,7 @@
 			 x:DataType="vm:MainViewModel"
 			 Background="{StaticResource TransparentBrush}"
 			 >
-	<UserControl.DataContext>
-		<vm:MainViewModel/>
-	</UserControl.DataContext>
+	
 	<Grid Margin="20" RowDefinitions="0.15* 0.85*" ColumnDefinitions="1* 1*" ShowGridLines="False" >
 
 		<StackPanel Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2"

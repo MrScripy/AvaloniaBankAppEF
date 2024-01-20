@@ -14,6 +14,9 @@ using AvaloniaBankAppEF.ViewModels;
 using AvaloniaBankAppEF.Views;
 using Splat;
 using Splat.Microsoft.Extensions.DependencyInjection;
+using AvaloniaBankAppEF.Services.Navigation.Store;
+using AvaloniaBankAppEF.Services.Navigation;
+using AvaloniaBankAppEF.ViewModels.Base;
 
 namespace AvaloniaBankAppEF;
 
@@ -32,6 +35,10 @@ public partial class App : Application
     public override void OnFrameworkInitializationCompleted()
     {
         Window window = Services.GetRequiredService<MainWindow>();
+
+        INavigationService navigationService = 
+            Services.GetRequiredService<NavigationService<NavigationStore, LoginViewModel>>();
+        navigationService.Navigate();
 
         BindingPlugins.DataValidators.RemoveAt(0);
 
@@ -76,8 +83,9 @@ public partial class App : Application
             options.UseSqlite("Data Source=Bank.db"));
 
         //ViewModels
-        services.AddSingleton<MainViewModel>();
+        services.AddSingleton<MainWindowViewModel>();
         services.AddSingleton<LoginViewModel>();
+        services.AddSingleton<MainViewModel>();
 
         //Services
         services.AddTransient<IDataCreator, DataCreator>();
@@ -86,9 +94,17 @@ public partial class App : Application
 
         services.AddSingleton(s => new MainWindow()
         {
-            DataContext = s.GetRequiredService<MainViewModel>()
+            DataContext = s.GetRequiredService<MainWindowViewModel>()
         });
 
+        // Navigation
+        services.AddSingleton<NavigationStore>();
+
+        services.AddSingleton<NavigationService<NavigationStore, LoginViewModel>>();
+        services.AddSingleton<Func<LoginViewModel>>(s => () => s.GetRequiredService<LoginViewModel>());
+
+        services.AddSingleton<NavigationService<NavigationStore, MainViewModel>>();
+        services.AddSingleton<Func<MainViewModel>>(s => () => s.GetRequiredService<MainViewModel>());
 
     }
 }

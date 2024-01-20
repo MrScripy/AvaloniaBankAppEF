@@ -1,9 +1,13 @@
 ﻿using AvaloniaBankAppEF.Services.Navigation.Store;
+using CommunityToolkit.Mvvm.ComponentModel;
 
 namespace AvaloniaBankAppEF.ViewModels.Base
 {
-    internal class MainWindowViewModel : ViewModelBase
+    internal partial class MainWindowViewModel : ViewModelBase
     {
+        [ObservableProperty]
+        private string _test = "Test";
+
         private NavigationStore _navigationStore;
 
         public ViewModelBase CurrentViewModel => _navigationStore.CurrentViewModel;

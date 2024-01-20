@@ -2,7 +2,7 @@
 
 namespace AvaloniaBankAppEF.Entities
 {
-    internal class Deal : NamedEntity
+    public class Deal : NamedEntity
     {
         public int CustomerId { get; set; }
         public Customer? Customer { get; set; }

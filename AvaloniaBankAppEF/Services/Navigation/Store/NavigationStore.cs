@@ -3,7 +3,7 @@ using AvaloniaBankAppEF.ViewModels.Base;
 
 namespace AvaloniaBankAppEF.Services.Navigation.Store
 {
-    internal class NavigationStore
+    public class NavigationStore
     {
         private ViewModelBase _currentViewModel;
 

@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace AvaloniaBankAppEF.Entities
 {
-    internal class Customer : NamedEntity
+    public class Customer : NamedEntity
     {
         [Required]
         public string? Patronymic { get; set; }

@@ -4,7 +4,7 @@ using System;
 
 namespace AvaloniaBankAppEF.DbContexts
 {
-    internal class ApplicationDbContext : DbContext
+    public class ApplicationDbContext : DbContext
     {
         public DbSet<Customer> Customers { get; set; } = null!;
         public DbSet<Deal> Deals { get; set; } = null!;
