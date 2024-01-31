@@ -5,6 +5,10 @@ using CommunityToolkit.Mvvm.Input;
 using AvaloniaBankAppEF.DbContexts;
 using AvaloniaBankAppEF.ViewModels.Base;
 using AvaloniaBankAppEF.Services.DialogService;
+using AvaloniaBankAppEF.Entities;
+using AvaloniaBankAppEF.ViewModels.Dialogs;
+using System.Threading.Tasks;
+using Avalonia.Controls;
 
 namespace AvaloniaBankAppEF.ViewModels
 {
@@ -21,25 +25,45 @@ namespace AvaloniaBankAppEF.ViewModels
         }
 
         [RelayCommand]
-        private void AddCustomer()
+        private async Task AddCustomer()
         {
-            if (true)
-                ;
-            using (var db = _dbContextFactory.CreateDbContext())
-            {
+            var customer = await _dialogService.ShowDialogAsync<Customer, Customer?>(nameof(AddCustomerDialogViewModel), null);
 
-                db.Customers.Add(new Entities.Customer
-                {
-                    Name = "Name",
-                    Patronymic = "Patro",
-                    Surname = "Surname",
-                    Mail = "Mail",
-                    Phone = "123"                   
+            //if (true)
+            //    ;
+            //using (var db = _dbContextFactory.CreateDbContext())
+            //{
 
-                });
-                db.SaveChanges();
-                Trace.WriteLine("Added customer");
-            }
+            //    db.Customers.Add(new Entities.Customer
+            //    {
+            //        Name = "Name",
+            //        Patronymic = "Patro",
+            //        Surname = "Surname",
+            //        Mail = "Mail",
+            //        Phone = "123"                   
+
+            //    });
+            //    db.SaveChanges();
+            //    Trace.WriteLine("Added customer");
+            //}
+        }
+
+        [RelayCommand]
+        private async Task ChangeCustomer()
+        {
+            var customer = await _dialogService.ShowDialogAsync<Customer, Customer?>(nameof(ChangeCustomerInfoDialogViewModel), null);
+        }
+
+        [RelayCommand]
+        private async Task AddOrder()
+        {
+            var customer = await _dialogService.ShowDialogAsync<Order, Order?>(nameof(ChangeCustomerInfoDialogViewModel), null);
+        }
+
+        [RelayCommand]
+        private async Task ClearDB()
+        {
+            
         }
 
         public void Dispose()

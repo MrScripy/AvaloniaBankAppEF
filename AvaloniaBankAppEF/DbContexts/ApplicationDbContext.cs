@@ -7,7 +7,7 @@ namespace AvaloniaBankAppEF.DbContexts
     public class ApplicationDbContext : DbContext
     {
         public DbSet<Customer> Customers { get; set; } = null!;
-        public DbSet<Deal> Deals { get; set; } = null!;
+        public DbSet<Order> Deals { get; set; } = null!;
 
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options) { }
 

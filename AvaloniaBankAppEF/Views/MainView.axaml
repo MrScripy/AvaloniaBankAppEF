@@ -16,10 +16,10 @@
 					HorizontalAlignment="Center" VerticalAlignment="Center"
 					Spacing="10"
 					>
-			<Button Classes="BlueRoundedBtn"> Change Customer</Button>
+			<Button Classes="BlueRoundedBtn" Command="{Binding ChangeCustomer}"> Change Customer</Button>
 			<Button Classes="BlueRoundedBtn" Command="{CompiledBinding AddCustomerCommand}"> Add Customer</Button>
-			<Button Classes="BlueRoundedBtn"> Add Order</Button>
-			<Button Classes="BlueRoundedBtn"> Clear the tables</Button>	
+			<Button Classes="BlueRoundedBtn" Command="{Binding AddOrderCommand}"> Add Order</Button>
+			<Button Classes="BlueRoundedBtn" Command="{Binding ClearDBCommand}"> Clear the tables</Button>	
 		</StackPanel>
 		
 		<DataGrid Grid.Row="1" Grid.Column="0" ItemsSource="{CompiledBinding }" 

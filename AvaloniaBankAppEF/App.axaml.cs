@@ -89,9 +89,9 @@ public partial class App : Application
         services.AddSingleton<MainWindowViewModel>();
         services.AddSingleton<LoginViewModel>();
         services.AddSingleton<MainViewModel>();
-        //services.AddTransient<AddCustomerDialogViewModel>();
-        //services.AddTransient<AddOrderDialogViewModel>();
-        //services.AddTransient<ChangeCustomerInfoDialogViewModel>();
+        services.AddTransient<AddCustomerDialogViewModel>();
+        services.AddTransient<AddOrderDialogViewModel>();
+        services.AddTransient<ChangeCustomerInfoDialogViewModel>();
 
         //Services
         services.AddTransient<IDataCreator, DataCreator>();

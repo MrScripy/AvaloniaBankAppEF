@@ -14,6 +14,6 @@ namespace AvaloniaBankAppEF.Entities
         [Required]
         public string? Mail { get; set; }
 
-        public List<Deal> Deals { get; set; } = new();
+        public List<Order> Deals { get; set; } = new();
     }
 }

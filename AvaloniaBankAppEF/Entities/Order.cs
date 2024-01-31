@@ -2,7 +2,7 @@
 
 namespace AvaloniaBankAppEF.Entities
 {
-    public class Deal : NamedEntity
+    public class Order : NamedEntity
     {
         public int CustomerId { get; set; }
         public Customer? Customer { get; set; }

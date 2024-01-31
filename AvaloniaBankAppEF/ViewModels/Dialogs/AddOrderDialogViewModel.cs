@@ -6,14 +6,14 @@ using System.Threading.Tasks;
 
 namespace AvaloniaBankAppEF.ViewModels.Dialogs
 {
-    public partial class AddOrderDialogViewModel : ParamDialogViewModelBase<Deal, Deal?>
+    public partial class AddOrderDialogViewModel : ParamDialogViewModelBase<Order, Order?>
     {
-        public override Task Activate(Deal? param)
+        public override Task Activate(Order? param)
         {
             throw new System.NotImplementedException();
         }
 
-        public override Task ActivateAsync(Deal? param, CancellationToken token = default)
+        public override Task ActivateAsync(Order? param, CancellationToken token = default)
         {
             throw new System.NotImplementedException();
         }

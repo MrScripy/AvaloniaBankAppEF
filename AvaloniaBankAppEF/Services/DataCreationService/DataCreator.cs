@@ -11,7 +11,7 @@ namespace AvaloniaBankAppEF.Services.DataCreationService
     internal class DataCreator : IDataCreator
     {
         private IEnumerable<Customer> _customers;
-        private IEnumerable<Deal> _deals;
+        private IEnumerable<Order> _deals;
 
         private Random _random = new();
 
@@ -54,7 +54,7 @@ namespace AvaloniaBankAppEF.Services.DataCreationService
             var mails = _customers.Select(i => i.Mail).ToArray();
 
             _deals = Enumerable.Range(1, 100)
-                .Select(i => new Deal
+                .Select(i => new Order
                 {
                     Name = $"Item name {i}",
                     ItemCode = _random.Next(0, 100),
