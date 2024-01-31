@@ -16,6 +16,8 @@ using AvaloniaBankAppEF.Services.Navigation.Store;
 using AvaloniaBankAppEF.Services.Navigation;
 using AvaloniaBankAppEF.ViewModels.Base;
 using AvaloniaBankAppEF.Services.DataCreationService;
+using AvaloniaBankAppEF.Services.DialogService;
+using AvaloniaBankAppEF.ViewModels.Dialogs;
 
 namespace AvaloniaBankAppEF;
 
@@ -34,6 +36,8 @@ public partial class App : Application
     public override void OnFrameworkInitializationCompleted()
     {
         Window window = Services.GetRequiredService<MainWindow>();
+        DialogService dialogService = (DialogService)Services.GetRequiredService<IDialogService>();
+        dialogService.ParentWindow = window;
 
         INavigationService navigationService = 
             Services.GetRequiredService<NavigationService<NavigationStore, LoginViewModel>>();
@@ -85,9 +89,13 @@ public partial class App : Application
         services.AddSingleton<MainWindowViewModel>();
         services.AddSingleton<LoginViewModel>();
         services.AddSingleton<MainViewModel>();
+        //services.AddTransient<AddCustomerDialogViewModel>();
+        //services.AddTransient<AddOrderDialogViewModel>();
+        //services.AddTransient<ChangeCustomerInfoDialogViewModel>();
 
         //Services
         services.AddTransient<IDataCreator, DataCreator>();
+        services.AddSingleton<IDialogService, DialogService>();
 
         //Window
 

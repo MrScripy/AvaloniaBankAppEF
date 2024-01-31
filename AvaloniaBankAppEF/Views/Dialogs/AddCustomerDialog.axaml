@@ -8,9 +8,32 @@
 		Width="500" Height="500"
 		CanResize="False"
         x:Class="AvaloniaBankAppEF.Views.Dialogs.AddCustomerDialog"
-		x:DataType="vm:AddCustomerDialogViewModel`1"
+		x:DataType="vm:AddCustomerDialogViewModel"
         Title="Add Customer"
 		Background="{StaticResource GradientBack}"
 		>
-	
+	<Grid Margin="20" ShowGridLines="False" RowDefinitions="0.15*, 0.85*">
+		<TextBlock Classes="MainTextBlock">Add Customer Info</TextBlock>
+
+		<Grid Grid.Row="1" RowDefinitions="1* 1* 1* 1* 1* 1*" ColumnDefinitions="0.3* 0.7*" ShowGridLines="False">
+
+			<TextBlock Grid.Row="0" Classes="MainTextBlock" HorizontalAlignment="Right">Surname</TextBlock>
+			<TextBlock Grid.Row="1" Classes="MainTextBlock" HorizontalAlignment="Right">Name</TextBlock>
+			<TextBlock Grid.Row="2" Classes="MainTextBlock" HorizontalAlignment="Right">Patronimyc</TextBlock>
+			<TextBlock Grid.Row="3" Classes="MainTextBlock" HorizontalAlignment="Right">Tel.</TextBlock>
+			<TextBlock Grid.Row="4" Classes="MainTextBlock" HorizontalAlignment="Right">E-mail</TextBlock>
+
+			<TextBox Grid.Row="0" Grid.Column="1" Classes="MainTextBox"/>
+			<TextBox Grid.Row="1" Grid.Column="1" Classes="MainTextBox"/>
+			<TextBox Grid.Row="2" Grid.Column="1" Classes="MainTextBox"/>
+			<TextBox Grid.Row="3" Grid.Column="1" Classes="MainTextBox"/>
+			<TextBox Grid.Row="4" Grid.Column="1" Classes="MainTextBox"/>
+
+			<Button Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="2"
+					Classes="BlueRoundedBtn"
+					HorizontalAlignment="Center" VerticalAlignment="Center"
+					Content="Add"
+					/>
+		</Grid>
+	</Grid>
 </Window>

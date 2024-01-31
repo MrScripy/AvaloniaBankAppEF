@@ -4,17 +4,20 @@ using Microsoft.EntityFrameworkCore;
 using CommunityToolkit.Mvvm.Input;
 using AvaloniaBankAppEF.DbContexts;
 using AvaloniaBankAppEF.ViewModels.Base;
+using AvaloniaBankAppEF.Services.DialogService;
 
 namespace AvaloniaBankAppEF.ViewModels
 {
     public partial class MainViewModel : ViewModelBase, IDisposable
     {
+        private IDialogService _dialogService;
         private IDbContextFactory<ApplicationDbContext> _dbContextFactory;
         public MainViewModel() { }
 
-        public MainViewModel(IDbContextFactory<ApplicationDbContext> dbContextFactory) 
+        public MainViewModel(IDbContextFactory<ApplicationDbContext> dbContextFactory, IDialogService dialogService) 
         {
             _dbContextFactory = dbContextFactory;
+            _dialogService = dialogService;
         }
 
         [RelayCommand]
