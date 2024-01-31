@@ -1,6 +1,6 @@
 ﻿using System.Threading.Tasks;
 
-namespace AvaloniaBankAppEF.Services.Interfaces
+namespace AvaloniaBankAppEF.Services.DataCreationService
 {
     public interface IDataCreator
     {

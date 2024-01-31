@@ -4,10 +4,9 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using AvaloniaBankAppEF.DbContexts;
-using AvaloniaBankAppEF.Services.Interfaces;
 using AvaloniaBankAppEF.Entities;
 
-namespace AvaloniaBankAppEF.Services
+namespace AvaloniaBankAppEF.Services.DataCreationService
 {
     internal class DataCreator : IDataCreator
     {
@@ -24,10 +23,10 @@ namespace AvaloniaBankAppEF.Services
         }
 
         public async Task FillDB()
-        {            
+        {
             using (var db = _dbContextFactory.CreateDbContext())
             {
-                if(db.Database.EnsureCreated())
+                if (db.Database.EnsureCreated())
                 {
                     await GenerateData();
 
@@ -36,7 +35,7 @@ namespace AvaloniaBankAppEF.Services
                     await db.SaveChangesAsync();
 
                     await Console.Out.WriteLineAsync("Filled DB");
-                }                
+                }
             }
         }
 

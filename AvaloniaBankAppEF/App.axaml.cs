@@ -8,8 +8,6 @@ using Avalonia.Controls.ApplicationLifetimes;
 using Avalonia.Data.Core.Plugins;
 using Avalonia.Markup.Xaml;
 using AvaloniaBankAppEF.DbContexts;
-using AvaloniaBankAppEF.Services;
-using AvaloniaBankAppEF.Services.Interfaces;
 using AvaloniaBankAppEF.ViewModels;
 using AvaloniaBankAppEF.Views;
 using Splat;
@@ -17,6 +15,7 @@ using Splat.Microsoft.Extensions.DependencyInjection;
 using AvaloniaBankAppEF.Services.Navigation.Store;
 using AvaloniaBankAppEF.Services.Navigation;
 using AvaloniaBankAppEF.ViewModels.Base;
+using AvaloniaBankAppEF.Services.DataCreationService;
 
 namespace AvaloniaBankAppEF;
 
