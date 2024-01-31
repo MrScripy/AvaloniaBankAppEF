@@ -10,5 +10,9 @@
 	<Color x:Key="LightGrayBrush">#454545</Color>
 	<Color x:Key="GrayBrush">#4D4D4D</Color>
 	<Color x:Key="DarkGrayBrush">#484e57</Color>
+	<LinearGradientBrush x:Key="GradientBack" StartPoint="0%, 0%" EndPoint="0%, 100%">
+		<GradientStop Color="{StaticResource WhiteBrush}" Offset="0"/>
+		<GradientStop Color="{StaticResource BlueBrush}" Offset="1"/>
+	</LinearGradientBrush>
 	
 </ResourceDictionary>

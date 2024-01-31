@@ -13,13 +13,9 @@
         Title="{CompiledBinding Test}"
 		x:CompileBindings="True"
 		x:DataType="vmB:MainWindowViewModel"
+		Background="{StaticResource GradientBack}"
 		>
-	<Window.Background>
-		<LinearGradientBrush StartPoint="0%, 0%" EndPoint="0%, 100%">
-			<GradientStop Color="{StaticResource WhiteBrush}" Offset="0"/>
-			<GradientStop Color="{StaticResource BlueBrush}" Offset="1"/>
-		</LinearGradientBrush>
-	</Window.Background>
+	
 
 	<Window.DataTemplates>
 		<DataTemplate DataType="{x:Type vm:LoginViewModel}">
