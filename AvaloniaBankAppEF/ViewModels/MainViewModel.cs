@@ -20,6 +20,7 @@ namespace AvaloniaBankAppEF.ViewModels
 
         [ObservableProperty]
         [NotifyCanExecuteChangedFor(nameof(ChangeCustomerCommand))]
+        [NotifyCanExecuteChangedFor(nameof(AddOrderCommand))]
         private Customer? _selectedCustomer;
 
 
@@ -66,7 +67,7 @@ namespace AvaloniaBankAppEF.ViewModels
             Customers.Add(customer);
             using (var db = _dbContextFactory.CreateDbContext())
             {
-                Customer customerDB = db.Customers.FirstOrDefault(c => c.Id == customer.Id);.
+                Customer customerDB = db.Customers.FirstOrDefault(c => c.Id == customer.Id);
 
                 customerDB.Name = customer.Name;
                 customerDB.Surname = customer.Surname;
