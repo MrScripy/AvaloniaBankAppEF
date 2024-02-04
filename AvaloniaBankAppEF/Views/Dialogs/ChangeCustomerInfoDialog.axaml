@@ -12,6 +12,7 @@
 		x:DataType="vm:ChangeCustomerInfoDialogViewModel"
         Title="Change Customer Info"
 		Background="{StaticResource GradientBack}"
+		x:CompileBindings="False"
 		>
 	<Grid Margin="20" ShowGridLines="False" RowDefinitions="0.15*, 0.85*">
 		<TextBlock Classes="MainTextBlock">Change Customer Info</TextBlock>

@@ -11,6 +11,7 @@
 		x:DataType="vm:AddOrderDialogViewModel"
         Title="Add Order"
 		Background="{StaticResource GradientBack}"
+		x:CompileBindings="False"
 		>
 
 	<Grid Margin="20" ShowGridLines="False" RowDefinitions="0.15*, 0.85*" HorizontalAlignment="Center">

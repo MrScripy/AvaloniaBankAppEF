@@ -18,6 +18,10 @@ namespace AvaloniaBankAppEF.ViewModels
         private IDialogService _dialogService;
         private IDbContextFactory<ApplicationDbContext> _dbContextFactory;
 
+        [ObservableProperty]
+        [NotifyCanExecuteChangedFor(nameof(ChangeCustomerCommand))]
+        private Customer? _selectedCustomer;
+
 
         public ObservableCollection<Customer> Customers { get; set; }
         public ObservableCollection<Order> Orders { get; set; }
@@ -52,11 +56,14 @@ namespace AvaloniaBankAppEF.ViewModels
 
         }
 
-        [RelayCommand]
+        [RelayCommand (CanExecute = nameof(CanCgangeCustomer))]
         private async Task ChangeCustomer()
         {
             // var customer = await _dialogService.ShowDialogAsync<Customer, Customer?>(nameof(ChangeCustomerInfoDialogViewModel), null);
         }
+
+        private bool CanCgangeCustomer() => SelectedCustomer != null;
+        
 
         [RelayCommand]
         private async Task AddOrder()

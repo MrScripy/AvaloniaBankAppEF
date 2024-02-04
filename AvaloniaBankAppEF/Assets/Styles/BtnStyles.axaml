@@ -26,8 +26,9 @@
 		<Setter Property="BorderBrush" Value="{StaticResource BlueBrush}"/>
 	</Style>
 	<Style Selector="Button.BlueRoundedBtn:disabled /template/ContentPresenter#PART_ContentPresenter">
-		<Setter Property="Opacity" Value="0.5"/>
+		<Setter Property="Opacity" Value="0.5"/>		
 	</Style>
+	
 	
 	
 	</Styles>
