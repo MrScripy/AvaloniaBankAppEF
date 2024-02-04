@@ -1,12 +1,9 @@
-using Avalonia.Controls;
+using AvaloniaBankAppEF.Entities;
 
 namespace AvaloniaBankAppEF.Views.Dialogs
 {
-    public partial class AddOrderDialog : Window
+    public partial class AddOrderDialog : DialogWindowBase<Order>
     {
-        public AddOrderDialog()
-        {
-            InitializeComponent();
-        }
+        public AddOrderDialog() => InitializeComponent();
     }
 }

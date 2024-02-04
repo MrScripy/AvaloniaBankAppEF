@@ -1,5 +1,6 @@
 ﻿using AvaloniaBankAppEF.Entities;
 using AvaloniaBankAppEF.Services.DialogService;
+using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using System.Threading;
 using System.Threading.Tasks;
@@ -8,14 +9,18 @@ namespace AvaloniaBankAppEF.ViewModels.Dialogs
 {
     public partial class AddCustomerDialogViewModel : ParamDialogViewModelBase<Customer, Customer?>
     {
-        public override Task Activate(Customer? param)
+        [ObservableProperty] 
+        private Customer? _customer;
+        public override async Task Activate(Customer param)
         {
-            throw new System.NotImplementedException();
+            if(param == null) this.Customer = new Customer();
+            else this.Customer = param;
         }
 
-        public override Task ActivateAsync(Customer? param, CancellationToken token = default)
+        public override async Task ActivateAsync(Customer? param, CancellationToken token = default)
         {
-            throw new System.NotImplementedException();
+            if (param == null) this.Customer = new Customer();
+            else this.Customer = param;
         }
 
         [RelayCommand]
