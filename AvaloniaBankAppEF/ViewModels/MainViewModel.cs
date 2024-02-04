@@ -39,7 +39,16 @@ namespace AvaloniaBankAppEF.ViewModels
         [RelayCommand]
         private async Task AddCustomer()
         {
-             var customer = await _dialogService.ShowDialogAsync<Customer, Customer?>(nameof(AddCustomerDialogViewModel), null);
+            var customer = await _dialogService.ShowDialogAsync<Customer, Customer?>(nameof(AddCustomerDialogViewModel), null);
+            if (customer != null)
+            {
+                Customers.Add(customer);
+                using (var db = _dbContextFactory.CreateDbContext())
+                {
+                    db.Customers.Add(customer);
+                    db.SaveChanges();
+                }
+            }
 
         }
 
@@ -52,7 +61,7 @@ namespace AvaloniaBankAppEF.ViewModels
         [RelayCommand]
         private async Task AddOrder()
         {
-           var order = await _dialogService.ShowDialogAsync<Order, Order?>(nameof(AddOrderDialogViewModel), null);
+            var order = await _dialogService.ShowDialogAsync<Order, Order?>(nameof(AddOrderDialogViewModel), null);
         }
 
         [RelayCommand]

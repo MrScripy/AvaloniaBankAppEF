@@ -9,24 +9,60 @@ namespace AvaloniaBankAppEF.ViewModels.Dialogs
 {
     public partial class AddCustomerDialogViewModel : ParamDialogViewModelBase<Customer, Customer?>
     {
-        [ObservableProperty] 
-        private Customer? _customer;
+        [ObservableProperty]
+        [NotifyCanExecuteChangedFor(nameof(AddCustomerCommand))]
+        private string _name;
+
+        [ObservableProperty]
+        [NotifyCanExecuteChangedFor(nameof(AddCustomerCommand))]
+        private string _surname;
+
+        [ObservableProperty]
+        [NotifyCanExecuteChangedFor(nameof(AddCustomerCommand))]
+        private string _patronymic;
+
+        [ObservableProperty]
+        [NotifyCanExecuteChangedFor(nameof(AddCustomerCommand))]
+        private string _phone;
+
+        [ObservableProperty]
+        [NotifyCanExecuteChangedFor(nameof(AddCustomerCommand))]
+        private string _mail;
+
+        [ObservableProperty]
+        private Customer? _customer = new Customer();
+
         public override async Task Activate(Customer param)
         {
-            if(param == null) this.Customer = new Customer();
-            else this.Customer = param;
+            if (param != null) this.Customer = param;
         }
 
         public override async Task ActivateAsync(Customer? param, CancellationToken token = default)
         {
-            if (param == null) this.Customer = new Customer();
-            else this.Customer = param;
+            if (param != null) this.Customer = param;
         }
 
-        [RelayCommand]
+        [RelayCommand(CanExecute = nameof(CanAddCustomer))]
         private void AddCustomer()
         {
+            Customer.Name = Name;
+            Customer.Surname = Surname;
+            Customer.Patronymic = Patronymic;
+            Customer.Phone = Phone;
+            Customer.Mail = Mail;
 
+            Close(Customer);
         }
+
+        private bool CanAddCustomer()
+        {
+            return
+                 !string.IsNullOrEmpty(Surname) &&
+                 !string.IsNullOrEmpty(Name) &&
+                 !string.IsNullOrEmpty(Patronymic) &&
+                 !string.IsNullOrEmpty(Phone) &&
+                 !string.IsNullOrEmpty(Mail);
+        }
+
     }
 }

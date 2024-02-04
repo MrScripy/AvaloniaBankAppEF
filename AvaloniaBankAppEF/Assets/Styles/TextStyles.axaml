@@ -23,7 +23,7 @@
 		<Setter Property="FontWeight" Value="Medium"/>
 		<Setter Property="FontFamily" Value="Mongolian Baiti"/>
 		<Setter Property="Background" Value="{StaticResource TransparentBrush}"/>
-		<Setter Property="Foreground" Value="{StaticResource WhiteBrush}"/>
+		<Setter Property="Foreground" Value="{StaticResource DarkGrayBrush}"/>
 		<Setter Property="CaretBrush" Value="{StaticResource LightGrayBrush}"/>
 		<Setter Property="BorderBrush" Value="{StaticResource DarkGrayBrush}"/>
 		<Setter Property="BorderThickness" Value="0,0,0,1"/>

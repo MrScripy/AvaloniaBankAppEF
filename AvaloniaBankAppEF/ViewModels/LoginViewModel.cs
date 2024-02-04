@@ -16,6 +16,7 @@ public partial class LoginViewModel : ViewModelBase
     private INavigationService _navigationService;
     private IDbContextFactory<ApplicationDbContext> _dbContextFactory;
     private IDataCreator _dataCreator;
+
     public LoginViewModel(
         NavigationService<NavigationStore,
         MainViewModel> navigationService,
@@ -26,10 +27,10 @@ public partial class LoginViewModel : ViewModelBase
         _navigationService = navigationService;
         _dbContextFactory = dbContextFactory;
         _dataCreator = dataCreator;
-        using (var db = dbContextFactory.CreateDbContext())
-        {
-            db.Database.Migrate();
-        }
+        //using (var db = dbContextFactory.CreateDbContext())
+        //{
+        //    db.Database.Migrate();
+        //}
 
         //Task.Run(() =>
         //CheckDBExistance(_dbContextFactory));
