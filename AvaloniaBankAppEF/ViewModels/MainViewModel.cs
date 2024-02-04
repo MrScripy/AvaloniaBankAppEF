@@ -56,16 +56,25 @@ namespace AvaloniaBankAppEF.ViewModels
 
         }
 
-        [RelayCommand (CanExecute = nameof(CanCgangeCustomer))]
+        [RelayCommand (CanExecute = nameof(CanCgangeCustomerOrAddOrder))]
         private async Task ChangeCustomer()
         {
-            // var customer = await _dialogService.ShowDialogAsync<Customer, Customer?>(nameof(ChangeCustomerInfoDialogViewModel), null);
+            var customer = await _dialogService.ShowDialogAsync<Customer, Customer?>(nameof(ChangeCustomerInfoDialogViewModel), SelectedCustomer);
+            var changedCustomer = Customers.FirstOrDefault(c => c.Id == customer.Id);
+            if(changedCustomer != null)
+                Customers.Remove(changedCustomer);
+            Customers.Add(customer);
+            //using(var db =  _dbContextFactory.CreateDbContext())
+            //{
+            //    db.Customers.
+            //}
+
         }
 
-        private bool CanCgangeCustomer() => SelectedCustomer != null;
+        private bool CanCgangeCustomerOrAddOrder() => SelectedCustomer != null;
         
 
-        [RelayCommand]
+        [RelayCommand(CanExecute = nameof(CanCgangeCustomerOrAddOrder))]
         private async Task AddOrder()
         {
             var order = await _dialogService.ShowDialogAsync<Order, Order?>(nameof(AddOrderDialogViewModel), null);

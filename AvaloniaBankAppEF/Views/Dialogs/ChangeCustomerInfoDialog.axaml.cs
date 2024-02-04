@@ -1,12 +1,10 @@
-using Avalonia.Controls;
+using AvaloniaBankAppEF.Entities;
 
 namespace AvaloniaBankAppEF.Views.Dialogs
 {
-    public partial class ChangeCustomerInfoDialog : Window
+    public partial class ChangeCustomerInfoDialog : DialogWindowBase<Customer>
     {
-        public ChangeCustomerInfoDialog()
-        {
-            InitializeComponent();
-        }
+        public ChangeCustomerInfoDialog() => InitializeComponent();
     }
+
 }
