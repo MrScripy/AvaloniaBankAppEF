@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Diagnostics;
 using Microsoft.EntityFrameworkCore;
 using CommunityToolkit.Mvvm.Input;
 using AvaloniaBankAppEF.DbContexts;
@@ -8,7 +7,6 @@ using AvaloniaBankAppEF.Services.DialogService;
 using AvaloniaBankAppEF.Entities;
 using AvaloniaBankAppEF.ViewModels.Dialogs;
 using System.Threading.Tasks;
-using Avalonia.Controls;
 
 namespace AvaloniaBankAppEF.ViewModels
 {
@@ -51,7 +49,7 @@ namespace AvaloniaBankAppEF.ViewModels
         [RelayCommand]
         private async Task ChangeCustomer()
         {
-            var customer = await _dialogService.ShowDialogAsync<Customer, Customer?>(nameof(ChangeCustomerInfoDialogViewModel), null);
+            // var customer = await _dialogService.ShowDialogAsync<Customer, Customer?>(nameof(ChangeCustomerInfoDialogViewModel), null);
         }
 
         [RelayCommand]

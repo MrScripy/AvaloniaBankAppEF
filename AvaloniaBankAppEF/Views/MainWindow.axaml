@@ -10,10 +10,11 @@
 		MinWidth="800" MinHeight="450"
 		
         x:Class="AvaloniaBankAppEF.Views.MainWindow"
-        Title="{CompiledBinding Test}"
+        Title="BankApp"
 		x:CompileBindings="True"
 		x:DataType="vmB:MainWindowViewModel"
 		Background="{StaticResource GradientBack}"
+		Icon="/Assets/Icon.ico"		
 		>
 	
 

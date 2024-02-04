@@ -18,6 +18,11 @@
     <AvaloniaResource Remove="Assets\Styles\TextStyles.axaml" />
   </ItemGroup>
 
+  
+  <ItemGroup>
+    <None Remove="Assets\Icon.ico" />
+  </ItemGroup>
+
   <ItemGroup>
     <PackageReference Include="Avalonia" Version="$(AvaloniaVersion)" />
     <PackageReference Include="Avalonia.Themes.Fluent" Version="$(AvaloniaVersion)" />
