@@ -49,7 +49,7 @@ namespace AvaloniaBankAppEF.ViewModels
         [RelayCommand]
         private async Task ChangeCustomer()
         {
-            // var customer = await _dialogService.ShowDialogAsync<Customer, Customer?>(nameof(ChangeCustomerInfoDialogViewModel), null);
+            var customer = await _dialogService.ShowDialogAsync<Customer, Customer?>(nameof(ChangeCustomerInfoDialogViewModel), null);
         }
 
         [RelayCommand]
