@@ -1,0 +1,48 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+		xmlns:vm="clr-namespace:AvaloniaBankAppEF.ViewModels.Dialogs;assembly=AvaloniaBankAppEF"
+		
+        mc:Ignorable="d" d:DesignWidth="500" d:DesignHeight="500"
+		Width="500" Height="500"
+		CanResize="False"
+        x:Class="AvaloniaBankAppEF.Views.Dialogs.AddCustomerDialog"
+		x:DataType="vm:AddCustomerDialogViewModel"
+        Title="Add Customer"
+		Background="{StaticResource GradientBack}"
+		>
+	<Design.DataContext>
+		<vm:AddCustomerDialogViewModel/>
+	</Design.DataContext>
+	
+	<Grid Margin="20" ShowGridLines="False" RowDefinitions="0.15*, 0.85*">
+		<TextBlock Classes="MainTextBlock">Add Customer Info</TextBlock>
+
+		<Grid Grid.Row="1" RowDefinitions="1* 1* 1* 1* 1* 1*" ColumnDefinitions="0.3* 0.7*" ShowGridLines="False">
+
+			<TextBlock Grid.Row="0" Classes="MainTextBlock" HorizontalAlignment="Right">Surname</TextBlock>
+			<TextBox Grid.Row="0" Grid.Column="1" Classes="MainTextBox" Text="{CompiledBinding Surname}"/>
+			
+			<TextBlock Grid.Row="1" Classes="MainTextBlock" HorizontalAlignment="Right">Name</TextBlock>
+			<TextBox Grid.Row="1" Grid.Column="1" Classes="MainTextBox" Text="{CompiledBinding Name}"/>
+			
+			<TextBlock Grid.Row="2" Classes="MainTextBlock" HorizontalAlignment="Right">Patronimyc</TextBlock>
+			<TextBox Grid.Row="2" Grid.Column="1" Classes="MainTextBox" Text="{CompiledBinding Patronymic}"/>
+			
+			<TextBlock Grid.Row="3" Classes="MainTextBlock" HorizontalAlignment="Right">Tel.</TextBlock>
+			<TextBox Grid.Row="3" Grid.Column="1" Classes="MainTextBox" Text="{CompiledBinding Phone}"/>
+			
+			<TextBlock Grid.Row="4" Classes="MainTextBlock" HorizontalAlignment="Right">E-mail</TextBlock>
+			<TextBox Grid.Row="4" Grid.Column="1" Classes="MainTextBox" Text="{CompiledBinding Mail}"/>
+
+
+			<Button Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="2"
+					Classes="BlueRoundedBtn"
+					HorizontalAlignment="Center" VerticalAlignment="Center"
+					Content="Add"
+					Command="{ReflectionBinding AddCustomerCommand}"
+					/>
+		</Grid>
+	</Grid>
+</Window>

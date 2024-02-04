@@ -2,9 +2,9 @@ using Avalonia.Controls;
 
 namespace AvaloniaBankAppEF.Views.Dialogs
 {
-    public partial class DialogWindow : Window
+    public partial class ChangeCustomerInfoDialog : Window
     {
-        public DialogWindow()
+        public ChangeCustomerInfoDialog()
         {
             InitializeComponent();
         }

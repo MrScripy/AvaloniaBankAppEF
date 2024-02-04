@@ -1,422 +1,78 @@
-﻿
+﻿using System;
+using Microsoft.EntityFrameworkCore;
+using CommunityToolkit.Mvvm.Input;
+using AvaloniaBankAppEF.DbContexts;
+using AvaloniaBankAppEF.ViewModels.Base;
+using AvaloniaBankAppEF.Services.DialogService;
+using AvaloniaBankAppEF.Entities;
+using AvaloniaBankAppEF.ViewModels.Dialogs;
+using System.Threading.Tasks;
 using CommunityToolkit.Mvvm.ComponentModel;
 using System.Collections.ObjectModel;
+using System.Linq;
 
 namespace AvaloniaBankAppEF.ViewModels
 {
-    internal class Customer
+    public partial class MainViewModel : ViewModelBase, IDisposable
     {
-        public int Id { get; set; }
-        public string Name { get; set; }
-        public string Patronymic { get; set; }
-        public string Surname { get; set; }
-        public string Phone { get; set; }
-        public string Mail { get; set; }
-    }
+        private IDialogService _dialogService;
+        private IDbContextFactory<ApplicationDbContext> _dbContextFactory;
 
-    internal class Order
-    {
-        public int Id { get; set; }
-        public string Name { get; set; }
-        public string Code { get; set; }
-    }
 
-    internal partial class MainViewModel : ViewModelBase
-    {
-        [ObservableProperty]
-        private ObservableCollection<Customer> _customers = new ObservableCollection<Customer>
+        public ObservableCollection<Customer> Customers { get; set; }
+        public ObservableCollection<Order> Orders { get; set; }
+
+        public MainViewModel() { }
+
+        public MainViewModel(IDbContextFactory<ApplicationDbContext> dbContextFactory, IDialogService dialogService)
         {
-            new Customer 
-            { 
-                Id = 1,
-                Name = "Foo",
-                Patronymic = "Bar",
-                Surname = "Bar",
-                Phone = "Bar",
-                Mail = "Bar"
-            },
-             new Customer
-            {
-                Id = 1,
-                Name = "Foo",
-                Patronymic = "Bar",
-                Surname = "Bar",
-                Phone = "Bar",
-                Mail = "Bar"
-            },
-              new Customer
-            {
-                Id = 1,
-                Name = "Foo",
-                Patronymic = "Bar",
-                Surname = "Bar",
-                Phone = "Bar",
-                Mail = "Bar"
-            }, new Customer
-            {
-                Id = 1,
-                Name = "Foo",
-                Patronymic = "Bar",
-                Surname = "Bar",
-                Phone = "Bar",
-                Mail = "Bar"
-            }, new Customer
-            {
-                Id = 1,
-                Name = "Foo",
-                Patronymic = "Bar",
-                Surname = "Bar",
-                Phone = "Bar",
-                Mail = "Bar"
-            }, new Customer
-            {
-                Id = 1,
-                Name = "Foo",
-                Patronymic = "Bar",
-                Surname = "Bar",
-                Phone = "Bar",
-                Mail = "Bar"
-            }, new Customer
-            {
-                Id = 1,
-                Name = "Foo",
-                Patronymic = "Bar",
-                Surname = "Bar",
-                Phone = "Bar",
-                Mail = "Bar"
-            }, new Customer
-            {
-                Id = 1,
-                Name = "Foo",
-                Patronymic = "Bar",
-                Surname = "Bar",
-                Phone = "Bar",
-                Mail = "Bar"
-            }, new Customer
-            {
-                Id = 1,
-                Name = "Foo",
-                Patronymic = "Bar",
-                Surname = "Bar",
-                Phone = "Bar",
-                Mail = "Bar"
-            }, new Customer
-            {
-                Id = 1,
-                Name = "Foo",
-                Patronymic = "Bar",
-                Surname = "Bar",
-                Phone = "Bar",
-                Mail = "Bar"
-            }, new Customer
-            {
-                Id = 1,
-                Name = "Foo",
-                Patronymic = "Bar",
-                Surname = "Bar",
-                Phone = "Bar",
-                Mail = "Bar"
-            }, new Customer
-            {
-                Id = 1,
-                Name = "Foo",
-                Patronymic = "Bar",
-                Surname = "Bar",
-                Phone = "Bar",
-                Mail = "Bar"
-            }, new Customer
-            {
-                Id = 1,
-                Name = "Foo",
-                Patronymic = "Bar",
-                Surname = "Bar",
-                Phone = "Bar",
-                Mail = "Bar"
-            }, new Customer
-            {
-                Id = 1,
-                Name = "Foo",
-                Patronymic = "Bar",
-                Surname = "Bar",
-                Phone = "Bar",
-                Mail = "Bar"
-            }, new Customer
-            {
-                Id = 1,
-                Name = "Foo",
-                Patronymic = "Bar",
-                Surname = "Bar",
-                Phone = "Bar",
-                Mail = "Bar"
-            }, new Customer
-            {
-                Id = 1,
-                Name = "Foo",
-                Patronymic = "Bar",
-                Surname = "Bar",
-                Phone = "Bar",
-                Mail = "Bar"
-            },new Customer
-            {
-                Id = 1,
-                Name = "Foo",
-                Patronymic = "Bar",
-                Surname = "Bar",
-                Phone = "Bar",
-                Mail = "Bar"
-            },new Customer
-            {
-                Id = 1,
-                Name = "Foo",
-                Patronymic = "Bar",
-                Surname = "Bar",
-                Phone = "Bar",
-                Mail = "Bar"
-            },new Customer
-            {
-                Id = 1,
-                Name = "Foo",
-                Patronymic = "Bar",
-                Surname = "Bar",
-                Phone = "Bar",
-                Mail = "Bar"
-            },new Customer
-            {
-                Id = 1,
-                Name = "Foo",
-                Patronymic = "Bar",
-                Surname = "Bar",
-                Phone = "Bar",
-                Mail = "Bar"
-            },new Customer
-            {
-                Id = 1,
-                Name = "Foo",
-                Patronymic = "Bar",
-                Surname = "Bar",
-                Phone = "Bar",
-                Mail = "Bar"
-            },new Customer
-            {
-                Id = 1,
-                Name = "Foo",
-                Patronymic = "Bar",
-                Surname = "Bar",
-                Phone = "Bar",
-                Mail = "Bar"
-            },new Customer
-            {
-                Id = 1,
-                Name = "Foo",
-                Patronymic = "Bar",
-                Surname = "Bar",
-                Phone = "Bar",
-                Mail = "Bar"
-            },new Customer
-            {
-                Id = 1,
-                Name = "Foo",
-                Patronymic = "Bar",
-                Surname = "Bar",
-                Phone = "Bar",
-                Mail = "Bar"
-            },new Customer
-            {
-                Id = 1,
-                Name = "Foo",
-                Patronymic = "Bar",
-                Surname = "Bar",
-                Phone = "Bar",
-                Mail = "Bar"
-            },new Customer
-            {
-                Id = 1,
-                Name = "Foo",
-                Patronymic = "Bar",
-                Surname = "Bar",
-                Phone = "Bar",
-                Mail = "Bar"
-            },new Customer
-            {
-                Id = 1,
-                Name = "Foo",
-                Patronymic = "Bar",
-                Surname = "Bar",
-                Phone = "Bar",
-                Mail = "Bar"
-            },
-        };
+            _dbContextFactory = dbContextFactory;
+            _dialogService = dialogService;
 
-        [ObservableProperty]
-        private ObservableCollection<Order> _orders = new ObservableCollection<Order>
+            using (var db = _dbContextFactory.CreateDbContext())
+            {
+                Customers = new(db.Customers.ToArray<Customer>());
+                Orders = new(db.Deals.ToArray<Order>());
+            }
+        }
+
+        [RelayCommand]
+        private async Task AddCustomer()
         {
-            new Order
+            var customer = await _dialogService.ShowDialogAsync<Customer, Customer?>(nameof(AddCustomerDialogViewModel), null);
+            if (customer != null)
             {
-                Id= 1,
-                Name = "Foo",
-                Code = "Bar"
-            },
-            new Order
-            {
-                Id= 1,
-                Name = "Foo",
-                Code = "Bar"
-            },
-            new Order
-            {
-                Id= 1,
-                Name = "Foo",
-                Code = "Bar"
-            },
-            new Order
-            {
-                Id= 1,
-                Name = "Foo",
-                Code = "Bar"
-            },
-            new Order
-            {
-                Id= 1,
-                Name = "Foo",
-                Code = "Bar"
-            },
-            new Order
-            {
-                Id= 1,
-                Name = "Foo",
-                Code = "Bar"
-            },
-            new Order
-            {
-                Id= 1,
-                Name = "Foo",
-                Code = "Bar"
-            }, new Order
-            {
-                Id= 1,
-                Name = "Foo",
-                Code = "Bar"
-            },new Order
-            {
-                Id= 1,
-                Name = "Foo",
-                Code = "Bar"
-            },new Order
-            {
-                Id= 1,
-                Name = "Foo",
-                Code = "Bar"
-            },new Order
-            {
-                Id= 1,
-                Name = "Foo",
-                Code = "Bar"
-            },new Order
-            {
-                Id= 1,
-                Name = "Foo",
-                Code = "Bar"
-            },new Order
-            {
-                Id= 1,
-                Name = "Foo",
-                Code = "Bar"
-            },new Order
-            {
-                Id= 1,
-                Name = "Foo",
-                Code = "Bar"
-            },new Order
-            {
-                Id= 1,
-                Name = "Foo",
-                Code = "Bar"
-            },new Order
-            {
-                Id= 1,
-                Name = "Foo",
-                Code = "Bar"
-            },new Order
-            {
-                Id= 1,
-                Name = "Foo",
-                Code = "Bar"
-            },new Order
-            {
-                Id= 1,
-                Name = "Foo",
-                Code = "Bar"
-            },new Order
-            {
-                Id= 1,
-                Name = "Foo",
-                Code = "Bar"
-            },new Order
-            {
-                Id= 1,
-                Name = "Foo",
-                Code = "Bar"
-            },new Order
-            {
-                Id= 1,
-                Name = "Foo",
-                Code = "Bar"
-            },new Order
-            {
-                Id= 1,
-                Name = "Foo",
-                Code = "Bar"
-            },new Order
-            {
-                Id= 1,
-                Name = "Foo",
-                Code = "Bar"
-            },new Order
-            {
-                Id= 1,
-                Name = "Foo",
-                Code = "Bar"
-            },new Order
-            {
-                Id= 1,
-                Name = "Foo",
-                Code = "Bar"
-            },new Order
-            {
-                Id= 1,
-                Name = "Foo",
-                Code = "Bar"
-            },new Order
-            {
-                Id= 1,
-                Name = "Foo",
-                Code = "Bar"
-            },new Order
-            {
-                Id= 1,
-                Name = "Foo",
-                Code = "Bar"
-            },new Order
-            {
-                Id= 1,
-                Name = "Foo",
-                Code = "Bar"
-            },new Order
-            {
-                Id= 1,
-                Name = "Foo",
-                Code = "Bar"
-            },new Order
-            {
-                Id= 1,
-                Name = "Foo",
-                Code = "Bar"
-            },
+                Customers.Add(customer);
+                using (var db = _dbContextFactory.CreateDbContext())
+                {
+                    db.Customers.Add(customer);
+                    db.SaveChanges();
+                }
+            }
 
-        };
+        }
 
-        [ObservableProperty]
-        private string _test = "Test";
+        [RelayCommand]
+        private async Task ChangeCustomer()
+        {
+            // var customer = await _dialogService.ShowDialogAsync<Customer, Customer?>(nameof(ChangeCustomerInfoDialogViewModel), null);
+        }
 
+        [RelayCommand]
+        private async Task AddOrder()
+        {
+            var order = await _dialogService.ShowDialogAsync<Order, Order?>(nameof(AddOrderDialogViewModel), null);
+        }
+
+        [RelayCommand]
+        private async Task ClearDB()
+        {
+
+        }
+
+        public void Dispose()
+        {
+
+        }
     }
 }

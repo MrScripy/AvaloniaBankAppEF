@@ -8,9 +8,7 @@
 			 x:DataType="vm:MainViewModel"
 			 Background="{StaticResource TransparentBrush}"
 			 >
-	<UserControl.DataContext>
-		<vm:MainViewModel/>
-	</UserControl.DataContext>
+	
 	<Grid Margin="20" RowDefinitions="0.15* 0.85*" ColumnDefinitions="1* 1*" ShowGridLines="False" >
 
 		<StackPanel Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2"
@@ -18,10 +16,10 @@
 					HorizontalAlignment="Center" VerticalAlignment="Center"
 					Spacing="10"
 					>
-			<Button Classes="BlueRoundedBtn"> Change Customer</Button>
-			<Button Classes="BlueRoundedBtn"> Add Customer</Button>
-			<Button Classes="BlueRoundedBtn"> Add Order</Button>
-			<Button Classes="BlueRoundedBtn"> Clear the tables</Button>	
+			<Button Classes="BlueRoundedBtn" Command="{ReflectionBinding ChangeCustomerCommand}"> Change Customer</Button>
+			<Button Classes="BlueRoundedBtn" Command="{ReflectionBinding AddCustomerCommand}"> Add Customer</Button>
+			<Button Classes="BlueRoundedBtn" Command="{ReflectionBinding AddOrderCommand}"> Add Order</Button>
+			<Button Classes="BlueRoundedBtn" Command="{ReflectionBinding ClearDBCommand}"> Clear the tables</Button>	
 		</StackPanel>
 		
 		<DataGrid Grid.Row="1" Grid.Column="0" ItemsSource="{CompiledBinding Customers}" 
@@ -30,12 +28,12 @@
 				  >
 			
 			<DataGrid.Columns>
-				<DataGridTextColumn Header="N" IsReadOnly="True" Binding="{CompiledBinding Path=Id}"/>
-				<DataGridTextColumn Header="Name" IsReadOnly="True" Binding="{CompiledBinding Path=Name}"/>
-				<DataGridTextColumn Header="Patronymic" IsReadOnly="True"  Binding="{CompiledBinding Path=Patronymic}"/>
-				<DataGridTextColumn Header="Surname" IsReadOnly="True"  Binding="{CompiledBinding Path=Surname}"/>
-				<DataGridTextColumn Header="Phone" IsReadOnly="True"  Binding="{CompiledBinding Path=Phone}"/>
-				<DataGridTextColumn Header="E-mail" IsReadOnly="True" Binding="{CompiledBinding Path=Mail}"/>
+				<DataGridTextColumn Header="N" IsReadOnly="True" Binding="{CompiledBinding Id}"/>
+				<DataGridTextColumn Header="Name" IsReadOnly="True" Binding="{CompiledBinding Name}"/>
+				<DataGridTextColumn Header="Patronymic" IsReadOnly="True"  Binding="{CompiledBinding Patronymic}"/>
+				<DataGridTextColumn Header="Surname" IsReadOnly="True"  Binding="{CompiledBinding Surname}"/>
+				<DataGridTextColumn Header="Phone" IsReadOnly="True"  Binding="{CompiledBinding Phone}"/>
+				<DataGridTextColumn Header="E-mail" IsReadOnly="True" Binding="{CompiledBinding Mail}"/>
 			</DataGrid.Columns>
 		</DataGrid>
 
@@ -44,9 +42,9 @@
 				  Margin="20 10"
 				  >
 			<DataGrid.Columns>
-				<DataGridTextColumn Header="N" IsReadOnly="True" Binding="{CompiledBinding Path=Id}"/>
-				<DataGridTextColumn Header="Prodsuct Code" IsReadOnly="True" Binding="{CompiledBinding Path=Code}"/>
-				<DataGridTextColumn Header="Product name" IsReadOnly="True" Binding="{CompiledBinding Path=Name}"/>
+				<DataGridTextColumn Header="N" IsReadOnly="True" Binding="{CompiledBinding Id}"/>
+				<DataGridTextColumn Header="Product Code" IsReadOnly="True" Binding="{CompiledBinding ItemCode}"/>
+				<DataGridTextColumn Header="Product name" IsReadOnly="True" Binding="{CompiledBinding Name}"/>
 			</DataGrid.Columns>
 		</DataGrid>
 
