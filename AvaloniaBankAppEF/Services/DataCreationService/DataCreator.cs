@@ -26,7 +26,7 @@ namespace AvaloniaBankAppEF.Services.DataCreationService
         {
             using (var db = _dbContextFactory.CreateDbContext())
             {
-                if (db.Database.EnsureCreated())
+                if (await db.Database.EnsureCreatedAsync())
                 {
                     await GenerateData();
 

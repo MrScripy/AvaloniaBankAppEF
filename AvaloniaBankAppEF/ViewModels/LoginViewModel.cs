@@ -16,7 +16,7 @@ public partial class LoginViewModel : ViewModelBase
     private INavigationService _navigationService;
     private IDbContextFactory<ApplicationDbContext> _dbContextFactory;
     private IDataCreator _dataCreator;
-    public LoginViewModel (
+    public LoginViewModel(
         NavigationService<NavigationStore,
         MainViewModel> navigationService,
         IDbContextFactory<ApplicationDbContext> dbContextFactory,
@@ -39,21 +39,19 @@ public partial class LoginViewModel : ViewModelBase
 
     private async Task CheckDBExistance(IDbContextFactory<ApplicationDbContext> dbContextFactory)
     {
-        using (var db = dbContextFactory.CreateDbContext())
-        {
-            try
-            {
-                if (await db.Database.EnsureCreatedAsync())
-                {
-                    await _dataCreator.FillDB();
-                }
-            }
-            catch (Exception e)
-            {
-                Trace.WriteLine($"problems with filing DB. Error {e.Message}");
-            }
-            
-        }
+        //using (var db = dbContextFactory.CreateDbContext())
+        //{
+        //    try
+        //    {
+        //        await _dataCreator.FillDB();
+
+        //    }
+        //    catch (Exception e)
+        //    {
+        //        Trace.WriteLine($"problems with filing DB. Error {e.Message}");
+        //    }
+
+        //}
     }
 
 
