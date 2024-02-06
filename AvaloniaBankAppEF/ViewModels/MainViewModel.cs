@@ -26,7 +26,6 @@ namespace AvaloniaBankAppEF.ViewModels
 
 
         public ObservableCollection<Customer> Customers { get; set; }
-        public ObservableCollection<Order> Orders { get; set; }
 
         public MainViewModel() { }
 
@@ -38,7 +37,6 @@ namespace AvaloniaBankAppEF.ViewModels
             using (var db = _dbContextFactory.CreateDbContext())
             {
                 Customers = new(db.Customers.ToArray<Customer>());
-                Orders = new(db.Deals.ToArray<Order>());
             }
         }
 

@@ -28,8 +28,7 @@
 				  VerticalAlignment="Stretch"
 				  Margin="20 10"
 				  >			
-			<DataGrid.Columns>
-				<DataGridTextColumn Header="N" IsReadOnly="True" Binding="{CompiledBinding Id}"/>
+			<DataGrid.Columns>				
 				<DataGridTextColumn Header="Name" IsReadOnly="True" Binding="{CompiledBinding Name}"/>
 				<DataGridTextColumn Header="Patronymic" IsReadOnly="True"  Binding="{CompiledBinding Patronymic}"/>
 				<DataGridTextColumn Header="Surname" IsReadOnly="True"  Binding="{CompiledBinding Surname}"/>
@@ -42,8 +41,7 @@
 				  VerticalAlignment="Stretch"
 				  Margin="20 10"
 				  >
-			<DataGrid.Columns>
-				<DataGridTextColumn Header="N" IsReadOnly="True" Binding="{CompiledBinding Id}"/>
+			<DataGrid.Columns>				
 				<DataGridTextColumn Header="Product Code" IsReadOnly="True" Binding="{CompiledBinding ItemCode}"/>
 				<DataGridTextColumn Header="Product name" IsReadOnly="True" Binding="{CompiledBinding Name}"/>
 			</DataGrid.Columns>
