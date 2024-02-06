@@ -16,9 +16,10 @@
 		  >
 		
 		<TextBlock Grid.Row="0" Classes="MainTextBlock" Margin="0 0 0 10">Login</TextBlock>
-		<TextBox Grid.Row="1" Classes="MainTextBox" Margin="0 0 0 10"></TextBox>
+		<TextBox Grid.Row="1" Classes="MainTextBox" Margin="0 0 0 10" Text="{CompiledBinding UserName}"/>
+		
 		<TextBlock Grid.Row="2" Classes="MainTextBlock" Margin="0 10 0 10">Password</TextBlock>
-		<TextBox Grid.Row="3" Classes="MainTextBox" Margin="0 0 0 10"></TextBox>
+		<TextBox Grid.Row="3" Classes="MainTextBox" Margin="0 0 0 10" Text="{CompiledBinding Password}"/>
 		
 		<Button Grid.Row="4" Classes="BlueRoundedBtn" Margin="0 10 0 0" Command="{Binding LoginCommand}">Connect</Button>
 

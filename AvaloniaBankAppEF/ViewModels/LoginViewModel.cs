@@ -3,6 +3,7 @@ using AvaloniaBankAppEF.Services.DataCreationService;
 using AvaloniaBankAppEF.Services.Navigation;
 using AvaloniaBankAppEF.Services.Navigation.Store;
 using AvaloniaBankAppEF.ViewModels.Base;
+using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -13,6 +14,12 @@ namespace AvaloniaBankAppEF.ViewModels;
 
 public partial class LoginViewModel : ViewModelBase
 {
+    [ObservableProperty]
+    private string _userName;
+
+    [ObservableProperty]
+    private string _password;
+
     private INavigationService _navigationService;
     private IDbContextFactory<ApplicationDbContext> _dbContextFactory;
     private IDataCreator _dataCreator;
@@ -46,7 +53,6 @@ public partial class LoginViewModel : ViewModelBase
             try
             {
                 await db.Database.MigrateAsync();
-               // await _dataCreator.FillDB();
 
             }
             catch (Exception e)
