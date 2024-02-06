@@ -82,8 +82,7 @@ public partial class App : Application
 
     private void ConfigureServices(IServiceCollection services)
     {
-        services.AddDbContextFactory<ApplicationDbContext>(options =>
-            options.UseSqlite("Data Source=Bank.db"));
+        services.AddDbContextFactory<ApplicationDbContext>();
 
         //ViewModels
         services.AddSingleton<MainWindowViewModel>();

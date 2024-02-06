@@ -6,6 +6,8 @@ using AvaloniaBankAppEF.ViewModels.Base;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using Microsoft.EntityFrameworkCore;
+using MsBox.Avalonia.Enums;
+using MsBox.Avalonia;
 using System;
 using System.Diagnostics;
 using System.Threading.Tasks;
@@ -14,6 +16,10 @@ namespace AvaloniaBankAppEF.ViewModels;
 
 public partial class LoginViewModel : ViewModelBase
 {
+    private const string user = "admin";
+    private const string pass = "admin123";
+
+
     [ObservableProperty]
     private string _userName;
 
@@ -41,9 +47,20 @@ public partial class LoginViewModel : ViewModelBase
     }
 
     [RelayCommand]
-    private void Login()
+    private async Task LoginAsync()
     {
-        _navigationService.Navigate();
+        if (UserName == user && Password == pass)
+        {
+            _navigationService.Navigate();
+        }
+        else
+        {
+            var box = MessageBoxManager
+            .GetMessageBoxStandard("Error", "Wrong login or/and password. Try again!",
+                ButtonEnum.Ok, Icon.Error, Avalonia.Controls.WindowStartupLocation.CenterOwner);
+
+            _ = await box.ShowAsync();
+        }
     }
 
     private async Task CheckDBExistance(IDbContextFactory<ApplicationDbContext> dbContextFactory)
@@ -53,13 +70,11 @@ public partial class LoginViewModel : ViewModelBase
             try
             {
                 await db.Database.MigrateAsync();
-
             }
             catch (Exception e)
             {
                 Trace.WriteLine($"problems with DB migration. Error {e.Message}");
             }
-
         }
     }
 
