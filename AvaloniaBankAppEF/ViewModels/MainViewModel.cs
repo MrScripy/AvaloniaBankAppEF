@@ -99,7 +99,8 @@ namespace AvaloniaBankAppEF.ViewModels
 
                         customer.Deals.Add(order);
 
-                        Customers.First<Customer>(c => c.Id == customer.Id).Deals.Add(order);
+                        var customerView = Customers.First<Customer>(c => c.Id == customer.Id);
+                        customerView.Deals.Add(order);
 
                         db.SaveChanges();
                     }
@@ -114,10 +115,19 @@ namespace AvaloniaBankAppEF.ViewModels
         [RelayCommand]
         private async Task ClearDB()
         {
-            using(var db = _dbContextFactory.CreateDbContext())
+            using (var db = _dbContextFactory.CreateDbContext())
             {
-                await db.Database.EnsureDeletedAsync();
-                Customers.Clear();
+                try
+                {
+                   
+                    await db.Customers.ExecuteDeleteAsync<Customer>();
+                    Customers.Clear();
+                    Trace.WriteLine($"Removed customers");
+                }
+                catch (Exception e)
+                {
+                    Trace.WriteLine($"Remove customers error {e.Message}");
+                }
             }
         }
 
