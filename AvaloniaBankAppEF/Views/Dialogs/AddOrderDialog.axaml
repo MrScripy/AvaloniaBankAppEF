@@ -17,16 +17,14 @@
 	<Grid Margin="20" ShowGridLines="False" RowDefinitions="0.15*, 0.85*" HorizontalAlignment="Center">
 		<TextBlock Classes="MainTextBlock">Add Order</TextBlock>
 
-		<Grid Grid.Row="1" RowDefinitions="1* 1* 1* 1*" ColumnDefinitions="0.3* 0.7*" ShowGridLines="False">
+		<Grid Grid.Row="1" RowDefinitions="1*  1* 1*" ColumnDefinitions="0.3* 0.7*" ShowGridLines="False">
 
-			<TextBlock Grid.Row="0" Classes="MainTextBlock" HorizontalAlignment="Right">Email</TextBlock>
-			<TextBlock Grid.Row="0" Grid.Column="1" Classes="MainTextBlock"/>
 			
-			<TextBlock Grid.Row="1" Classes="MainTextBlock" HorizontalAlignment="Right">Product Name</TextBlock>
-			<TextBox Grid.Row="1" Grid.Column="1" Classes="MainTextBox"/>
+			<TextBlock Grid.Row="0" Classes="MainTextBlock" HorizontalAlignment="Right">Product Name</TextBlock>
+			<TextBox Grid.Row="0" Grid.Column="1" Classes="MainTextBox" Text="{CompiledBinding ProductName}"/>
 			
-			<TextBlock Grid.Row="2" Classes="MainTextBlock" HorizontalAlignment="Right">Product Code</TextBlock>
-			<TextBox Grid.Row="2" Grid.Column="1" Classes="MainTextBox"/>
+			<TextBlock Grid.Row="1" Classes="MainTextBlock" HorizontalAlignment="Right">Product Code</TextBlock>
+			<TextBox Grid.Row="1" Grid.Column="1" Classes="MainTextBox" Text="{CompiledBinding ProductCode}"/>
 
 
 
@@ -35,6 +33,7 @@
 					Classes="BlueRoundedBtn"
 					HorizontalAlignment="Center" VerticalAlignment="Center"
 					Content="Add"
+					Command="{Binding AddOrderCommand}"
 					/>
 		</Grid>
 	</Grid>

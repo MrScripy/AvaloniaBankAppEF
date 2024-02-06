@@ -38,7 +38,7 @@
 			</DataGrid.Columns>
 		</DataGrid>
 
-		<DataGrid Grid.Row="1" Grid.Column="1" ItemsSource="{CompiledBinding Orders}" 
+		<DataGrid Grid.Row="1" Grid.Column="1" ItemsSource="{CompiledBinding SelectedCustomer.Deals}" 
 				  VerticalAlignment="Stretch"
 				  Margin="20 10"
 				  >

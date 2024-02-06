@@ -27,13 +27,10 @@ public partial class LoginViewModel : ViewModelBase
         _navigationService = navigationService;
         _dbContextFactory = dbContextFactory;
         _dataCreator = dataCreator;
-        //using (var db = dbContextFactory.CreateDbContext())
-        //{
-        //    db.Database.Migrate();
-        //}
 
-        //Task.Run(() =>
-        //CheckDBExistance(_dbContextFactory));
+
+        Task.Run(() =>
+        CheckDBExistance(_dbContextFactory));
     }
 
     [RelayCommand]
@@ -48,12 +45,13 @@ public partial class LoginViewModel : ViewModelBase
         {
             try
             {
-                await _dataCreator.FillDB();
+                await db.Database.MigrateAsync();
+               // await _dataCreator.FillDB();
 
             }
             catch (Exception e)
             {
-                Trace.WriteLine($"problems with filing DB. Error {e.Message}");
+                Trace.WriteLine($"problems with DB migration. Error {e.Message}");
             }
 
         }

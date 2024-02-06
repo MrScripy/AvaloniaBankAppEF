@@ -21,7 +21,7 @@ namespace AvaloniaBankAppEF.ViewModels
         [ObservableProperty]
         [NotifyCanExecuteChangedFor(nameof(ChangeCustomerCommand))]
         [NotifyCanExecuteChangedFor(nameof(AddOrderCommand))]
-        private Customer? _selectedCustomer;
+        private Customer _selectedCustomer;
 
 
         public ObservableCollection<Customer> Customers { get; set; }
@@ -86,12 +86,27 @@ namespace AvaloniaBankAppEF.ViewModels
         private async Task AddOrder()
         {
             var order = await _dialogService.ShowDialogAsync<Order, Order?>(nameof(AddOrderDialogViewModel), null);
+
+            if (order != null)
+            {
+                using (var db = _dbContextFactory.CreateDbContext())
+                {
+                    var customer = db.Customers.FirstOrDefault<Customer>(c => c.Id == SelectedCustomer.Id);
+                    order.Customer = customer;
+                    db.Deals.Add(order);
+                    db.SaveChanges();
+                }
+            }
         }
 
         [RelayCommand]
         private async Task ClearDB()
         {
-
+            using(var db = _dbContextFactory.CreateDbContext())
+            {
+                await db.Database.EnsureDeletedAsync();
+                Customers.Clear();
+            }
         }
 
         public void Dispose()
