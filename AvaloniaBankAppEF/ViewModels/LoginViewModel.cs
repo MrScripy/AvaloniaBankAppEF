@@ -21,9 +21,11 @@ public partial class LoginViewModel : ViewModelBase
 
 
     [ObservableProperty]
+    [NotifyCanExecuteChangedFor(nameof(LoginCommand))]
     private string _userName;
 
     [ObservableProperty]
+    [NotifyCanExecuteChangedFor(nameof(LoginCommand))]
     private string _password;
 
     private INavigationService _navigationService;
@@ -46,7 +48,8 @@ public partial class LoginViewModel : ViewModelBase
         CheckDBExistance(_dbContextFactory));
     }
 
-    [RelayCommand]
+
+    [RelayCommand(CanExecute = nameof(CanLogin))]
     private async Task LoginAsync()
     {
         if (UserName == user && Password == pass)
@@ -61,6 +64,13 @@ public partial class LoginViewModel : ViewModelBase
 
             _ = await box.ShowAsync();
         }
+    }
+
+    private bool CanLogin()
+    {
+        return
+            !string.IsNullOrEmpty(UserName) &&
+            !string.IsNullOrEmpty(Password);
     }
 
     private async Task CheckDBExistance(IDbContextFactory<ApplicationDbContext> dbContextFactory)
