@@ -7,6 +7,7 @@
              x:Class="AvaloniaBankAppEF.Views.MainView"
 			 x:DataType="vm:MainViewModel"
 			 Background="{StaticResource TransparentBrush}"
+			 x:CompileBindings="False"
 			 >
 	
 	<Grid Margin="20" RowDefinitions="0.15* 0.85*" ColumnDefinitions="1* 1*" ShowGridLines="False" >
@@ -16,19 +17,18 @@
 					HorizontalAlignment="Center" VerticalAlignment="Center"
 					Spacing="10"
 					>
-			<Button Classes="BlueRoundedBtn" Command="{ReflectionBinding ChangeCustomerCommand}"> Change Customer</Button>
-			<Button Classes="BlueRoundedBtn" Command="{ReflectionBinding AddCustomerCommand}"> Add Customer</Button>
-			<Button Classes="BlueRoundedBtn" Command="{ReflectionBinding AddOrderCommand}"> Add Order</Button>
-			<Button Classes="BlueRoundedBtn" Command="{ReflectionBinding ClearDBCommand}"> Clear the tables</Button>	
+			<Button Classes="BlueRoundedBtn" Command="{Binding ChangeCustomerCommand}"> Change Customer</Button>
+			<Button Classes="BlueRoundedBtn" Command="{Binding AddCustomerCommand}"> Add Customer</Button>
+			<Button Classes="BlueRoundedBtn" Command="{Binding AddOrderCommand}"> Add Order</Button>
+			<Button Classes="BlueRoundedBtn" Command="{Binding ClearDBCommand}"> Clear the tables</Button>	
 		</StackPanel>
 		
 		<DataGrid Grid.Row="1" Grid.Column="0" ItemsSource="{CompiledBinding Customers}" 
+				  SelectedItem="{CompiledBinding SelectedCustomer}"
 				  VerticalAlignment="Stretch"
 				  Margin="20 10"
-				  >
-			
-			<DataGrid.Columns>
-				<DataGridTextColumn Header="N" IsReadOnly="True" Binding="{CompiledBinding Id}"/>
+				  >			
+			<DataGrid.Columns>				
 				<DataGridTextColumn Header="Name" IsReadOnly="True" Binding="{CompiledBinding Name}"/>
 				<DataGridTextColumn Header="Patronymic" IsReadOnly="True"  Binding="{CompiledBinding Patronymic}"/>
 				<DataGridTextColumn Header="Surname" IsReadOnly="True"  Binding="{CompiledBinding Surname}"/>
@@ -37,12 +37,11 @@
 			</DataGrid.Columns>
 		</DataGrid>
 
-		<DataGrid Grid.Row="1" Grid.Column="1" ItemsSource="{CompiledBinding Orders}" 
+		<DataGrid Grid.Row="1" Grid.Column="1" ItemsSource="{CompiledBinding SelectedCustomer.Deals}" 
 				  VerticalAlignment="Stretch"
 				  Margin="20 10"
 				  >
-			<DataGrid.Columns>
-				<DataGridTextColumn Header="N" IsReadOnly="True" Binding="{CompiledBinding Id}"/>
+			<DataGrid.Columns>				
 				<DataGridTextColumn Header="Product Code" IsReadOnly="True" Binding="{CompiledBinding ItemCode}"/>
 				<DataGridTextColumn Header="Product name" IsReadOnly="True" Binding="{CompiledBinding Name}"/>
 			</DataGrid.Columns>

@@ -11,6 +11,7 @@
 		x:DataType="vm:AddCustomerDialogViewModel"
         Title="Add Customer"
 		Background="{StaticResource GradientBack}"
+		x:CompileBindings="False"
 		>
 	<Design.DataContext>
 		<vm:AddCustomerDialogViewModel/>
@@ -41,7 +42,7 @@
 					Classes="BlueRoundedBtn"
 					HorizontalAlignment="Center" VerticalAlignment="Center"
 					Content="Add"
-					Command="{ReflectionBinding AddCustomerCommand}"
+					Command="{Binding AddCustomerCommand}"
 					/>
 		</Grid>
 	</Grid>

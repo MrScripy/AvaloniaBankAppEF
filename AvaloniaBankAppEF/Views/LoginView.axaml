@@ -7,6 +7,7 @@
              x:Class="AvaloniaBankAppEF.Views.LoginView"
              x:DataType="vm:LoginViewModel"	
 			 Background="{StaticResource TransparentBrush}"
+			 x:CompileBindings="False"
 			 >
 
 	<Grid HorizontalAlignment="Center" 
@@ -15,11 +16,12 @@
 		  >
 		
 		<TextBlock Grid.Row="0" Classes="MainTextBlock" Margin="0 0 0 10">Login</TextBlock>
-		<TextBox Grid.Row="1" Classes="MainTextBox" Margin="0 0 0 10"></TextBox>
-		<TextBlock Grid.Row="2" Classes="MainTextBlock" Margin="0 10 0 10">Password</TextBlock>
-		<TextBox Grid.Row="3" Classes="MainTextBox" Margin="0 0 0 10"></TextBox>
+		<TextBox Grid.Row="1" Classes="MainTextBox" Margin="0 0 0 10" Text="{CompiledBinding UserName}"/>
 		
-		<Button Grid.Row="4" Classes="BlueRoundedBtn" Margin="0 10 0 0" Command="{CompiledBinding LoginCommand}">Connect</Button>
+		<TextBlock Grid.Row="2" Classes="MainTextBlock" Margin="0 10 0 10">Password</TextBlock>
+		<TextBox Grid.Row="3" Classes="MainTextBox" Margin="0 0 0 10" Text="{CompiledBinding Password}"/>
+		
+		<Button Grid.Row="4" Classes="BlueRoundedBtn" Margin="0 10 0 0" Command="{Binding LoginCommand}">Connect</Button>
 
 	</Grid>
   

@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.ComponentModel.DataAnnotations;
 
 namespace AvaloniaBankAppEF.Entities
@@ -14,6 +15,6 @@ namespace AvaloniaBankAppEF.Entities
         [Required]
         public string? Mail { get; set; }
 
-        public List<Order> Deals { get; set; } = new();
+        public ObservableCollection<Order> Deals { get; set; } = new();
     }
 }
