@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using CommunityToolkit.Mvvm.ComponentModel;
 using System.Collections.ObjectModel;
 using System.Linq;
+using System.Diagnostics;
 
 namespace AvaloniaBankAppEF.ViewModels
 {
@@ -91,10 +92,21 @@ namespace AvaloniaBankAppEF.ViewModels
             {
                 using (var db = _dbContextFactory.CreateDbContext())
                 {
-                    var customer = db.Customers.FirstOrDefault<Customer>(c => c.Id == SelectedCustomer.Id);
-                    order.Customer = customer;
-                    db.Deals.Add(order);
-                    db.SaveChanges();
+                    try
+                    {
+                        var customer = db.Customers.FirstOrDefault<Customer>(c => c.Id == SelectedCustomer.Id);
+                        order.Mail = customer.Mail;
+
+                        customer.Deals.Add(order);
+
+                        Customers.First<Customer>(c => c.Id == customer.Id).Deals.Add(order);
+
+                        db.SaveChanges();
+                    }
+                    catch (Exception e)
+                    {
+                        Trace.WriteLine($"Add customer error {e.Message}");
+                    }
                 }
             }
         }
