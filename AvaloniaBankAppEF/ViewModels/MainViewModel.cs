@@ -60,21 +60,20 @@ namespace AvaloniaBankAppEF.ViewModels
         private async Task ChangeCustomer()
         {
             var customer = await _dialogService.ShowDialogAsync<Customer, Customer?>(nameof(ChangeCustomerInfoDialogViewModel), SelectedCustomer);
-            var changedCustomer = Customers.FirstOrDefault(c => c.Id == customer.Id);
-            if (changedCustomer != null)
-                Customers.Remove(changedCustomer);
-            Customers.Add(customer);
-            using (var db = _dbContextFactory.CreateDbContext())
-            {
-                Customer customerDB = db.Customers.FirstOrDefault(c => c.Id == customer.Id);
+            if(customer!= null)
+            {                
+                using (var db = _dbContextFactory.CreateDbContext())
+                {
+                    Customer customerDB = db.Customers.FirstOrDefault(c => c.Id == customer.Id);
 
-                customerDB.Name = customer.Name;
-                customerDB.Surname = customer.Surname;
-                customerDB.Patronymic = customer.Patronymic;
-                customerDB.Mail = customer.Mail;
-                customerDB.Phone = customer.Phone;
-
-                db.SaveChanges();
+                    customerDB.Name = customer.Name;
+                    customerDB.Surname = customer.Surname;
+                    customerDB.Patronymic = customer.Patronymic;
+                    customerDB.Mail = customer.Mail;
+                    customerDB.Phone = customer.Phone;
+                    db.SaveChanges();
+                    Customers = new(db.Customers.ToArray<Customer>());
+                }
             }
         }
 
